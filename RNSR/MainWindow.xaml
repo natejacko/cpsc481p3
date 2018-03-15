@@ -48,7 +48,7 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid x:Name="LoginScreen" Background="#FF7A7979">
-        <Canvas Margin="317.321,10,564.929,536.483">
+        <Canvas Margin="594.999,10,287.251,536.483">
             <TextBlock x:Name="Etext" HorizontalAlignment="Left" TextWrapping="Wrap" Text="e" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF7A7979" FontSize="200" Height="221.517" Width="115.107" RenderTransformOrigin="0.5,0.5" Canvas.Left="18.936">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
@@ -61,8 +61,8 @@
             </TextBlock>
             <Rectangle Fill="#FF7A7979" HorizontalAlignment="Left" Height="69.5" VerticalAlignment="Top" Width="141.75" Canvas.Top="105.25"/>
         </Canvas>
-        <TextBlock x:Name="Dino_Burger" HorizontalAlignment="Left" Height="298.764" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="447" FontSize="200" FontWeight="Bold" Foreground="#FF7A7979"><Run Text="Din"/><LineBreak/></TextBlock>
-        <Grid x:Name="BurgerGrid" Margin="343.405,124.412,576.929,555.75">
+        <TextBlock x:Name="Dino_Burger" HorizontalAlignment="Left" Height="298.764" Margin="287.678,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="447" FontSize="200" FontWeight="Bold" Foreground="#FF7A7979"><Run Text="Din"/><LineBreak/></TextBlock>
+        <Grid x:Name="BurgerGrid" Margin="621.083,124.412,299.251,555.75">
             <Image x:Name="BotBun" HorizontalAlignment="Left" Height="14.956" Margin="0,49.127,0,0" VerticalAlignment="Top" Width="103.666" Source="BotBun.png" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -124,5 +124,10 @@
                 </Image.RenderTransform>
             </Image>
         </Grid>
+        <TextBlock x:Name="UsernameText" HorizontalAlignment="Left" Height="58.459" Margin="191.078,350.101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239.681" FontWeight="Bold" FontSize="36" Foreground="White" Text="Username:"/>
+        <TextBlock x:Name="PasswordText" HorizontalAlignment="Left" Height="58.459" Margin="191.078,434.786,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239.681" FontWeight="Bold" FontSize="36" Foreground="White" Text="Password:"/>
+        <TextBox x:Name="Username" HorizontalAlignment="Left" Height="60" Margin="430.759,348.56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" FontSize="36" FontWeight="Bold" BorderBrush="White" Foreground="White" Background="{x:Null}"/>
+        <PasswordBox x:Name="Password" HorizontalAlignment="Left" Height="60" Margin="430.759,434.786,0,0" VerticalAlignment="Top" Width="400" Background="{x:Null}" BorderBrush="White" Foreground="White" FontSize="36"/>
+        <Button x:Name="LoginButton" Content="Login&#xD;&#xA;" HorizontalAlignment="Left" Height="39.459" Margin="417.248,548.78,0,0" VerticalAlignment="Top" Width="189.99" Foreground="White" Background="#FFF4982B" BorderBrush="{x:Null}" FontWeight="Bold" FontSize="24"/>
     </Grid>
 </Window>
