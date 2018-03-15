@@ -36,6 +36,10 @@
                 <EasingColorKeyFrame KeyTime="0:0:1.2" Value="#FF7A7979"/>
                 <EasingColorKeyFrame KeyTime="0:0:1.4" Value="#FFFBFBFB"/>
             </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="Dino_Burger">
+                <EasingColorKeyFrame KeyTime="0:0:1.2" Value="#FF7A7979"/>
+                <EasingColorKeyFrame KeyTime="0:0:1.4" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
     <Window.Triggers>
@@ -57,7 +61,7 @@
             </TextBlock>
             <Rectangle Fill="#FF7A7979" HorizontalAlignment="Left" Height="69.5" VerticalAlignment="Top" Width="141.75" Canvas.Top="105.25"/>
         </Canvas>
-        <TextBlock x:Name="Dino_Burger" HorizontalAlignment="Left" Height="298.764" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="447" FontSize="200" FontWeight="Bold" Foreground="White"><Run Text="Din"/><LineBreak/></TextBlock>
+        <TextBlock x:Name="Dino_Burger" HorizontalAlignment="Left" Height="298.764" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="447" FontSize="200" FontWeight="Bold" Foreground="#FF7A7979"><Run Text="Din"/><LineBreak/></TextBlock>
         <Grid x:Name="BurgerGrid" Margin="343.405,124.412,576.929,555.75">
             <Image x:Name="BotBun" HorizontalAlignment="Left" Height="14.956" Margin="0,49.127,0,0" VerticalAlignment="Top" Width="103.666" Source="BotBun.png" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
