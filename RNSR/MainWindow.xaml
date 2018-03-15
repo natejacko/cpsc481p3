@@ -6,5 +6,119 @@
         xmlns:local="clr-namespace:RNSR"
         mc:Ignorable="d"
         Title="MainWindow" Height="768" Width="1024" ResizeMode="NoResize" WindowStyle="None">
-    <Grid/>
+    <Window.Resources>
+        <Storyboard x:Key="LoginAnimation">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="BotBun">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-198.324"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-0.324"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Burger">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-183.682"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.31"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Cheese">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-186.005"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.394"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Tomato">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-167.995"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.505"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Lettuce">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-194.25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.25"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="TopBun">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-165"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0.327"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="Etext">
+                <EasingColorKeyFrame KeyTime="0:0:1.2" Value="#FF7A7979"/>
+                <EasingColorKeyFrame KeyTime="0:0:1.4" Value="#FFFBFBFB"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource LoginAnimation}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid x:Name="LoginScreen" Background="#FF7A7979">
+        <Canvas Margin="317.321,10,564.929,536.483">
+            <TextBlock x:Name="Etext" HorizontalAlignment="Left" TextWrapping="Wrap" Text="e" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF7A7979" FontSize="200" Height="221.517" Width="115.107" RenderTransformOrigin="0.5,0.5" Canvas.Left="18.936">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="0.785"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0.986"/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <Rectangle Fill="#FF7A7979" HorizontalAlignment="Left" Height="69.5" VerticalAlignment="Top" Width="141.75" Canvas.Top="105.25"/>
+        </Canvas>
+        <TextBlock x:Name="Dino_Burger" HorizontalAlignment="Left" Height="298.764" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="447" FontSize="200" FontWeight="Bold" Foreground="White"><Run Text="Din"/><LineBreak/></TextBlock>
+        <Grid x:Name="BurgerGrid" Margin="343.405,124.412,576.929,555.75">
+            <Image x:Name="BotBun" HorizontalAlignment="Left" Height="14.956" Margin="0,49.127,0,0" VerticalAlignment="Top" Width="103.666" Source="BotBun.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Burger" HorizontalAlignment="Left" Height="49.269" Margin="1.382,38.569,0,0" VerticalAlignment="Top" Width="100.212" Source="Burger.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Cheese" HorizontalAlignment="Left" Height="20.235" Margin="1.936,37.838,0,0" VerticalAlignment="Top" Width="100.212" Source="Cheese.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Tomato" HorizontalAlignment="Left" Height="19.943" Margin="2.49,32.556,0,0" VerticalAlignment="Top" Width="98.414" Source="Tomato.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Lettuce" HorizontalAlignment="Left" Height="18.768" Margin="0.275,32.116,0,0" VerticalAlignment="Top" Width="102.148" Source="Lettuce.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="TopBun" HorizontalAlignment="Left" Height="35.193" Margin="0.969,1.875,0,0" VerticalAlignment="Top" Width="100.626" Source="TopBun.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Grid>
+    </Grid>
 </Window>

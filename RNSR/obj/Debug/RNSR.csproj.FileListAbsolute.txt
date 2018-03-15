@@ -1,0 +1,15 @@
+C:\Users\Nate\Desktop\cpsc481p3\RNSR\bin\Debug\RNSR.exe.config
+C:\Users\Nate\Desktop\cpsc481p3\RNSR\bin\Debug\RNSR.exe
+C:\Users\Nate\Desktop\cpsc481p3\RNSR\bin\Debug\RNSR.pdb
+C:\Users\Nate\Desktop\cpsc481p3\RNSR\obj\Debug\RNSR.csprojResolveAssemblyReference.cache
+C:\Users\Nate\Desktop\cpsc481p3\RNSR\obj\Debug\MainWindow.g.cs
+C:\Users\Nate\Desktop\cpsc481p3\RNSR\obj\Debug\App.g.cs
+C:\Users\Nate\Desktop\cpsc481p3\RNSR\obj\Debug\RNSR_MarkupCompile.cache
+C:\Users\Nate\Desktop\cpsc481p3\RNSR\obj\Debug\RNSR_MarkupCompile.lref
+C:\Users\Nate\Desktop\cpsc481p3\RNSR\obj\Debug\MainWindow.baml
+C:\Users\Nate\Desktop\cpsc481p3\RNSR\obj\Debug\RNSR.g.resources
+C:\Users\Nate\Desktop\cpsc481p3\RNSR\obj\Debug\RNSR.Properties.Resources.resources
+C:\Users\Nate\Desktop\cpsc481p3\RNSR\obj\Debug\RNSR.csproj.GenerateResource.Cache
+C:\Users\Nate\Desktop\cpsc481p3\RNSR\obj\Debug\RNSR.csproj.CoreCompileInputs.cache
+C:\Users\Nate\Desktop\cpsc481p3\RNSR\obj\Debug\RNSR.exe
+C:\Users\Nate\Desktop\cpsc481p3\RNSR\obj\Debug\RNSR.pdb
