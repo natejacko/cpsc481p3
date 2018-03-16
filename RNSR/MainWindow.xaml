@@ -55,7 +55,17 @@
         <Grid x:Name="ViewOrder" Margin="0,50,300,70" Background="#FF0099B2"/>
         <Grid x:Name="Menu" Margin="0,50,300,70" Background="#FF5100B2"/>
         <Grid x:Name="Pay" Margin="0,50,300,70" Background="#FF0008B2"/>
-        <Grid x:Name="ItemList" Margin="724,50,0,70" Background="#FF7D8040"/>
+        <Grid x:Name="ItemList" Margin="724,50,0,70" Background="#FF7D8040">
+            <ScrollViewer x:Name="Scroller" Margin="0">
+                <UniformGrid x:Name="Items">
+                    <Grid x:Name="AnItem" Height="100" Background="#FFC7C7C7">
+                        <TextBlock x:Name="ItemDescription" TextWrapping="Wrap" Text="ItemDescription" Margin="0" Width="223" HorizontalAlignment="Left" Background="#FF838383"/>
+                        <TextBlock x:Name="ItemPrice" TextWrapping="Wrap" Text="ItemPrice" VerticalAlignment="Bottom" Height="40" HorizontalAlignment="Left" Width="60" Background="#FF9E9E9E" Margin="223,0,0,0"/>
+                        <Image x:Name="ItemStatus" HorizontalAlignment="Left" Height="60" Margin="223,0,0,0" VerticalAlignment="Top" Width="60" OpacityMask="#FF898989"/>
+                    </Grid>
+                </UniformGrid>
+            </ScrollViewer>
+        </Grid>
         <Grid x:Name="HeaderFooter">
             <Grid x:Name="Header" Height="50" VerticalAlignment="Top" Background="#FF00FF17"/>
             <Grid x:Name="Footer" Height="70" VerticalAlignment="Bottom" Background="#FF00FF17"/>
