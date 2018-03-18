@@ -57,7 +57,7 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid x:Name="MainGrid">
-        <Grid x:Name="More" Margin="0,50,0,70" Background="#FF4D610B">
+        <Grid x:Name="More" Margin="0,50,0,70" Background="#FF4D610B" d:IsHidden="True">
             <Button x:Name="LogoutButton" Content="LOGOUT" Width="252" Margin="0" Height="99.46" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFF4982B" BorderBrush="Black" Click="LogoutButton_Click"/>
         </Grid>
         <Grid x:Name="Map" Margin="0,50,0,70" d:IsHidden="True">
@@ -65,7 +65,10 @@
             <Grid x:Name="ViewSelector" Margin="824,0,0,0" Background="#FFB48B00"/>
         </Grid>
         <Grid x:Name="ViewOrder" Margin="0,50,300,70" Background="#FF0099B2" d:IsHidden="True"/>
-        <Grid x:Name="Menu" Margin="0,50,300,70" Background="#FF5100B2" d:IsHidden="True"/>
+        <Grid x:Name="Menu" Margin="0,50,300,70" Background="#FF5100B2">
+            <Button x:Name="TestButton" Content="TESTBUTTON" HorizontalAlignment="Left" VerticalAlignment="Top" Width="103.5" Height="33.46" Click="TestButton_Click"/>
+            <Button x:Name="TestButton2" Content="TESTBUTTON2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="103.5" Height="33.46" Click="TestButton2_Click" Margin="0,33.46,0,0"/>
+        </Grid>
         <Grid x:Name="Pay" Margin="0,50,300,70" Background="#FF7A7979" d:IsHidden="True">
             <Button x:Name="PayAllButton" Content="Pay All" HorizontalAlignment="Left" Height="70" Margin="51,368.5,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FFF4982B" FontSize="24"/>
             <Button x:Name="PaySelectedButton" Content="Pay Selected" HorizontalAlignment="Left" Height="70" Margin="401.5,368.5,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FFF4982B" FontSize="24"/>
@@ -74,15 +77,9 @@
             <TextBlock x:Name="TotalRemaining" HorizontalAlignment="Left" Height="37.038" Margin="247.5,273.538,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="24"><Run Foreground="#FF31E451" Text="$$$"/></TextBlock>
             <TextBlock x:Name="TotalSelected" HorizontalAlignment="Left" Height="37.038" Margin="582,273.538,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="24"><Run Foreground="#FF31E451" Text="$$$"/></TextBlock>
         </Grid>
-        <Grid x:Name="ItemList" Margin="724,50,0,70" Background="#FF7D8040" d:IsHidden="True">
+        <Grid x:Name="ItemList" Margin="724,50,0,70" Background="#FF7D8040">
             <ScrollViewer x:Name="Scroller" Margin="0">
-                <UniformGrid x:Name="Items">
-                    <Grid x:Name="AnItem" Height="100" Background="#FFC7C7C7">
-                        <TextBlock x:Name="ItemDescription" TextWrapping="Wrap" Text="ItemDescription" Margin="0" Width="223" HorizontalAlignment="Left" Background="#FF838383"/>
-                        <TextBlock x:Name="ItemPrice" TextWrapping="Wrap" Text="ItemPrice" VerticalAlignment="Bottom" Height="40" HorizontalAlignment="Left" Width="60" Background="#FF9E9E9E" Margin="223,0,0,0"/>
-                        <Image x:Name="ItemStatus" HorizontalAlignment="Left" Height="60" Margin="223,0,0,0" VerticalAlignment="Top" Width="60" OpacityMask="#FF898989"/>
-                    </Grid>
-                </UniformGrid>
+                <StackPanel x:Name="Items"/>
             </ScrollViewer>
         </Grid>
         <Grid x:Name="HeaderFooter">
@@ -108,7 +105,7 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Grid x:Name="LoginScreen" Background="#FF7A7979">
+        <Grid x:Name="LoginScreen" Background="#FF7A7979" d:IsHidden="True">
             <Canvas Margin="594.999,10,287.251,536.483">
                 <TextBlock x:Name="Etext" HorizontalAlignment="Left" TextWrapping="Wrap" Text="e" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF7A7979" FontSize="200" Height="221.517" Width="115.107" RenderTransformOrigin="0.5,0.5" Canvas.Left="18.936">
                     <TextBlock.RenderTransform>

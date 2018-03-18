@@ -56,10 +56,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AnItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AnItemControl.xaml.cs">
+      <DependentUpon>AnItemControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -96,14 +103,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\BotBun.png" />
-    <Resource Include="Resources\Burger.png" />
-    <Resource Include="Resources\Cheese.png" />
-    <Resource Include="Resources\Lettuce.png" />
-    <Resource Include="Resources\Tomato.png" />
-    <Resource Include="Resources\TopBun.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="BotBun.png" />
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +119,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="TopBun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="YesCheck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="NoCheck.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
