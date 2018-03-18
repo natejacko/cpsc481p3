@@ -21,7 +21,7 @@ namespace RNSR
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<AnItemControl> selectedItems;
+        private List<AnItemControl> selectedItems;
 
         public MainWindow()
         {
@@ -135,10 +135,9 @@ namespace RNSR
         //This is a button to be removed by the final build. It simply adds a default item to the ItemViewer for testing.
         private void TestButton_Click(object sender, RoutedEventArgs e)
         {
-            bool status = false;
             string description = "Bestest burger with dank amounts of ketchup";
-            string price = "$19.99";
-            AnItemControl anItem = new AnItemControl(status, description, price);
+            float price = 19.99f;
+            AnItemControl anItem = new AnItemControl(description, price, selectedItems);
             this.Items.Children.Add(anItem);
             this.Scroller.ScrollToEnd();
         }
@@ -146,12 +145,22 @@ namespace RNSR
         //This is a button to be removed by the final build. It simply adds a default item to the ItemViewer for testing.
         private void TestButton2_Click(object sender, RoutedEventArgs e)
         {
-            bool status = true;
             string description = "Some lesser burger";
-            string price = "$9.99";
-            AnItemControl anItem = new AnItemControl(status, description, price);
+            float price = 9.49f;
+            AnItemControl anItem = new AnItemControl(description, price, selectedItems);
             this.Items.Children.Add(anItem);
             this.Scroller.ScrollToEnd();
+        }
+
+        //This is a button to be removed by the final build. It simply displays some item info
+        private void TestGetSelected_Click(object sender, RoutedEventArgs e)
+        {
+            float totalPrice = 0;
+            foreach (AnItemControl anItem in selectedItems)
+            {
+                totalPrice += anItem.price;
+            }
+            this.TestTotalPrice.Text = String.Format("Total Price of Selected: {0:C2}", totalPrice);
         }
     }
 }

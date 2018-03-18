@@ -20,39 +20,41 @@ namespace RNSR
     /// </summary>
     public partial class AnItemControl : UserControl
     {
-        bool selected = false;
-        public AnItemControl(bool status, string description, string price)
+        private bool selected = false;
+        public float price = 0.00f;
+        private List<AnItemControl> selectedItems;
+
+        public AnItemControl(string description, float price, List<AnItemControl> selectedItems)
         {
             InitializeComponent();
+            this.price = price;
+            this.selectedItems = selectedItems;
             this.ItemDescription.Text = description;
-            this.ItemPrice.Text = price;
-            this.ItemNo.Visibility = Visibility.Hidden;
+            this.ItemPrice.Text = String.Format("{0:C2}", price);
+            this.ItemNo.Visibility = Visibility.Visible;
             this.ItemYes.Visibility = Visibility.Hidden;
-            if (status)
-            {
-                this.ItemYes.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                this.ItemNo.Visibility = Visibility.Visible;
-            }
         }
 
         private void Selector_Click(object sender, RoutedEventArgs e)
         {
-            if (selected)
+            if (this.selected) //If it WAS selected, make it no longer
             {
                 this.ItemDescription.Background = new SolidColorBrush(Color.FromRgb(131, 131, 131));
-                selected = false;
-                
+                this.selected = false;
+                this.selectedItems.Remove(this);
             }
-            else
+            else //If it was NOT selected, make it so
             {
                 this.ItemDescription.Background = new SolidColorBrush(Color.FromRgb(255, 255, 0));
-                selected = true;
+                this.selected = true;
+                this.selectedItems.Add(this);
             }
         }
-        
 
+        public void sendToKitchen()
+        {
+            this.ItemNo.Visibility = Visibility.Hidden;
+            this.ItemYes.Visibility = Visibility.Visible;
+        }
     }
 }
