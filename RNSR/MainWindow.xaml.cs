@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -52,11 +53,20 @@ namespace RNSR
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            LoginScreen.Visibility = Visibility.Hidden;
-            Map.Visibility = Visibility.Visible;
-            HeaderFooter.Visibility = Visibility.Visible;
-            MapButton.Background = new SolidColorBrush(Color.FromRgb(135, 40, 40));
-            HeaderScreenName.Text = "Floor Map";
+            if (Password.Password.ToString() == "" || Username.Text.ToString() == "")
+            {
+                Storyboard sb = this.FindResource("ErrorLoginMessage") as Storyboard;
+                sb.Begin();
+                Password.Password = "";
+            }
+            else
+            {
+                LoginScreen.Visibility = Visibility.Hidden;
+                Map.Visibility = Visibility.Visible;
+                HeaderFooter.Visibility = Visibility.Visible;
+                MapButton.Background = new SolidColorBrush(Color.FromRgb(135, 40, 40));
+                HeaderScreenName.Text = "Floor Map";
+            }
         }
 
         private void MapButton_MouseDown(object sender, MouseButtonEventArgs e)

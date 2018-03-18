@@ -1,9 +1,10 @@
-﻿<Window x:Class="RNSR.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RNSR"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Class="RNSR.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="768" Width="1024" ResizeMode="NoResize" WindowStyle="None">
     <Window.Resources>
@@ -41,10 +42,18 @@
                 <EasingColorKeyFrame KeyTime="0:0:1.4" Value="White"/>
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="ErrorLoginMessage">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ErrorLogin">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.1" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-            <BeginStoryboard Storyboard="{StaticResource LoginAnimation}"/>
+            <BeginStoryboard x:Name="LoginAnimation_BeginStoryboard" Storyboard="{StaticResource LoginAnimation}"/>
         </EventTrigger>
     </Window.Triggers>
     <Grid x:Name="MainGrid">
@@ -97,7 +106,7 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Grid x:Name="LoginScreen" Background="#FF7A7979" d:IsHidden="True">
+        <Grid x:Name="LoginScreen" Background="#FF7A7979">
             <Canvas Margin="594.999,10,287.251,536.483">
                 <TextBlock x:Name="Etext" HorizontalAlignment="Left" TextWrapping="Wrap" Text="e" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF7A7979" FontSize="200" Height="221.517" Width="115.107" RenderTransformOrigin="0.5,0.5" Canvas.Left="18.936">
                     <TextBlock.RenderTransform>
@@ -179,6 +188,9 @@
             <TextBox x:Name="Username" HorizontalAlignment="Left" Height="60" Margin="430.759,348.56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" FontSize="36" FontWeight="Bold" BorderBrush="White" Foreground="White" Background="{x:Null}"/>
             <PasswordBox x:Name="Password" HorizontalAlignment="Left" Height="60" Margin="430.759,434.786,0,0" VerticalAlignment="Top" Width="400" Background="{x:Null}" BorderBrush="White" Foreground="White" FontSize="36"/>
             <Button x:Name="LoginButton" Content="Login&#xA;" HorizontalAlignment="Left" Height="39.459" Margin="417.248,548.78,0,0" VerticalAlignment="Top" Width="189.99" Foreground="White" Background="#FFF4982B" BorderBrush="{x:Null}" FontWeight="Bold" FontSize="24" Click="LoginButton_Click"/>
+            <Grid x:Name="ErrorLogin" HorizontalAlignment="Left" Height="239.679" Margin="191.078,348.56,0,0" VerticalAlignment="Top" Width="639.681" Background="#FFE82929" Visibility="Hidden">
+                <TextBlock HorizontalAlignment="Left" Height="48" Margin="170.422,95.44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="336" FontWeight="Bold" FontSize="36" Foreground="White" Text="Error, Invalid Login!"/>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
