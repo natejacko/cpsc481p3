@@ -116,5 +116,16 @@ namespace RNSR
             this.HideAllScreensAfterLogin();
             More.Visibility = Visibility.Visible;
         }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            Map.Visibility = Visibility.Hidden;
+            ViewOrder.Visibility = Visibility.Hidden;
+            Menu.Visibility = Visibility.Hidden;
+            Pay.Visibility = Visibility.Hidden;
+            ItemList.Visibility = Visibility.Hidden;
+            HeaderFooter.Visibility = Visibility.Hidden;
+            LoginScreen.Visibility = Visibility.Visible;
+        }
     }
 }

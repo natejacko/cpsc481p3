@@ -96,11 +96,29 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\BotBun.png" />
+    <Resource Include="Resources\Burger.png" />
+    <Resource Include="Resources\Cheese.png" />
+    <Resource Include="Resources\Lettuce.png" />
+    <Resource Include="Resources\Tomato.png" />
+    <Resource Include="Resources\TopBun.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="BotBun.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Burger.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Cheese.png" />
-    <Resource Include="Lettuce.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Tomato.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Lettuce.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="TopBun.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
