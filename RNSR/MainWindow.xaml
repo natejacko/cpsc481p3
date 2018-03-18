@@ -57,15 +57,15 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid x:Name="MainGrid">
-        <Grid x:Name="More" Margin="0,50,0,70" Background="#FF4D610B" d:IsHidden="True">
-            <Button x:Name="LogoutButton" Content="LOGOUT" Width="252" Margin="0" Height="99.46" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFF4982B" BorderBrush="Black" Click="LogoutButton_Click"/>
+        <Grid x:Name="More" Margin="0,50,0,70" Background="#FF4D610B">
+            <Button x:Name="LogoutButton" Content="LOGOUT" Width="252" Margin="0" Height="99.46" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFF4982B" BorderBrush="{x:Null}" Click="LogoutButton_Click"/>
         </Grid>
         <Grid x:Name="Map" Margin="0,50,0,70" d:IsHidden="True">
             <Grid x:Name="Viewer" Margin="0,0,200,0" Background="#FF910000"/>
             <Grid x:Name="ViewSelector" Margin="824,0,0,0" Background="#FFB48B00"/>
         </Grid>
         <Grid x:Name="ViewOrder" Margin="0,50,300,70" Background="#FF0099B2" d:IsHidden="True"/>
-        <Grid x:Name="Menu" Margin="0,50,300,70" Background="#FF5100B2">
+        <Grid x:Name="Menu" Margin="0,50,300,70" Background="#FF5100B2" d:IsHidden="True">
             <Button x:Name="TestButton" Content="TESTBUTTON" HorizontalAlignment="Left" VerticalAlignment="Top" Width="103.5" Height="33.46" Click="TestButton_Click"/>
             <Button x:Name="TestButton2" Content="TESTBUTTON2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="103.5" Height="33.46" Click="TestButton2_Click" Margin="0,33.46,0,0"/>
         </Grid>
@@ -77,7 +77,7 @@
             <TextBlock x:Name="TotalRemaining" HorizontalAlignment="Left" Height="37.038" Margin="247.5,273.538,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="24"><Run Foreground="#FF31E451" Text="$$$"/></TextBlock>
             <TextBlock x:Name="TotalSelected" HorizontalAlignment="Left" Height="37.038" Margin="582,273.538,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="24"><Run Foreground="#FF31E451" Text="$$$"/></TextBlock>
         </Grid>
-        <Grid x:Name="ItemList" Margin="724,50,0,70" Background="#FF7D8040">
+        <Grid x:Name="ItemList" Margin="724,50,0,70" Background="#FF7D8040" d:IsHidden="True">
             <ScrollViewer x:Name="Scroller" Margin="0">
                 <StackPanel x:Name="Items"/>
             </ScrollViewer>

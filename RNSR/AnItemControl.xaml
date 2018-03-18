@@ -6,10 +6,62 @@
              xmlns:local="clr-namespace:RNSR"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="283" Width="283" Height="85">
+    <UserControl.Resources>
+        <Storyboard x:Key="OnMouseEnter1">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Selector">
+                <EasingColorKeyFrame KeyTime="0" Value="#00FFFF00"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#20FFFF00"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnMouseLeave1">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Selector">
+                <EasingColorKeyFrame KeyTime="0" Value="#20FFFF00"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#00FFFF00"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <ControlTemplate x:Key="SelectorTemplate" TargetType="{x:Type Button}">
+            <ControlTemplate.Resources>
+                <Storyboard x:Key="SelectorHover">
+                    <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="HoverColor">
+                        <EasingColorKeyFrame KeyTime="0" Value="#00FFFF00"/>
+                        <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#20FFFF00"/>
+                    </ColorAnimationUsingKeyFrames>
+                </Storyboard>
+                <Storyboard x:Key="SelectorLeave">
+                    <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="HoverColor">
+                        <EasingColorKeyFrame KeyTime="0" Value="#20FFFF00"/>
+                        <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#00FFFF00"/>
+                    </ColorAnimationUsingKeyFrames>
+                </Storyboard>
+            </ControlTemplate.Resources>
+            <Grid x:Name="grid">
+                <Rectangle x:Name="HoverColor" Fill="#00FFFF00" HorizontalAlignment="Stretch" Height="Auto" Stroke="{x:Null}" VerticalAlignment="Stretch"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True" SourceName="grid">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard Storyboard="{StaticResource SelectorHover}"/>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard x:Name="SelectorLeave_BeginStoryboard" Storyboard="{StaticResource SelectorLeave}"/>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="Selector">
+            <BeginStoryboard Storyboard="{StaticResource OnMouseEnter1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="Selector">
+            <BeginStoryboard x:Name="OnMouseLeave1_BeginStoryboard" Storyboard="{StaticResource OnMouseLeave1}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
     <Grid x:Name="AnItem" Background="#FF4D5F52" Margin="0" HorizontalAlignment="Left" Height="85">
-        <TextBlock x:Name="ItemDescription" TextWrapping="Wrap" Text="ItemDescription" Margin="0,0,0,5" Width="223" HorizontalAlignment="Left" Background="#FF838383"/>
+        <TextBlock x:Name="ItemDescription" TextWrapping="Wrap" Margin="0,0,0,5" Width="223" HorizontalAlignment="Left" Background="#FF838383"><Run Text="ItemD"/><Run Text="escription"/></TextBlock>
         <TextBlock x:Name="ItemPrice" TextWrapping="Wrap" Text="ItemPrice" VerticalAlignment="Bottom" Height="20" HorizontalAlignment="Left" Width="60" Background="#FF9E9E9E" Margin="223,0,0,5"/>
         <Image x:Name="ItemNo" HorizontalAlignment="Left" Height="60" Margin="223,0,0,0" VerticalAlignment="Top" Width="60" OpacityMask="#FF898989" Source="NoCheck.png"/>
         <Image x:Name="ItemYes" HorizontalAlignment="Left" Height="60" Margin="223,0,0,0" VerticalAlignment="Top" Width="60" OpacityMask="#FF898989" Source="YesCheck.png"/>
+        <Button x:Name="Selector" Content="" Margin="0,0,0,5" Background="#00FFFF00" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="Selector_Click" Template="{DynamicResource SelectorTemplate}"/>
     </Grid>
 </UserControl>

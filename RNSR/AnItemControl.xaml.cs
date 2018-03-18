@@ -20,6 +20,7 @@ namespace RNSR
     /// </summary>
     public partial class AnItemControl : UserControl
     {
+        bool selected = false;
         public AnItemControl(bool status, string description, string price)
         {
             InitializeComponent();
@@ -36,5 +37,22 @@ namespace RNSR
                 this.ItemNo.Visibility = Visibility.Visible;
             }
         }
+
+        private void Selector_Click(object sender, RoutedEventArgs e)
+        {
+            if (selected)
+            {
+                this.ItemDescription.Background = new SolidColorBrush(Color.FromRgb(131, 131, 131));
+                selected = false;
+                
+            }
+            else
+            {
+                this.ItemDescription.Background = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                selected = true;
+            }
+        }
+        
+
     }
 }

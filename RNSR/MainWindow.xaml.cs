@@ -21,6 +21,8 @@ namespace RNSR
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<AnItemControl> selectedItems;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -31,6 +33,8 @@ namespace RNSR
             ItemList.Visibility = Visibility.Hidden;
             HeaderFooter.Visibility = Visibility.Hidden;
             LoginScreen.Visibility = Visibility.Visible;
+
+            selectedItems = new List<AnItemControl>();
         }
 
         private void ResetButtons()
@@ -128,27 +132,23 @@ namespace RNSR
             LoginScreen.Visibility = Visibility.Visible;
         }
 
+        //This is a button to be removed by the final build. It simply adds a default item to the ItemViewer for testing.
         private void TestButton_Click(object sender, RoutedEventArgs e)
         {
-            //This is a button to be removed by the final build. It simply adds a default item to the ItemViewer for testing.
-
             bool status = false;
             string description = "Bestest burger with dank amounts of ketchup";
             string price = "$19.99";
-
             AnItemControl anItem = new AnItemControl(status, description, price);
             this.Items.Children.Add(anItem);
             this.Scroller.ScrollToEnd();
         }
 
+        //This is a button to be removed by the final build. It simply adds a default item to the ItemViewer for testing.
         private void TestButton2_Click(object sender, RoutedEventArgs e)
         {
-            //This is a button to be removed by the final build. It simply adds a default item to the ItemViewer for testing.
-
             bool status = true;
             string description = "Some lesser burger";
             string price = "$9.99";
-
             AnItemControl anItem = new AnItemControl(status, description, price);
             this.Items.Children.Add(anItem);
             this.Scroller.ScrollToEnd();
