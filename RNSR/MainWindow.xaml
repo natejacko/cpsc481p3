@@ -48,13 +48,21 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid x:Name="MainGrid">
-        <Grid x:Name="Map" Margin="0,50,0,70">
+        <Grid x:Name="More" HorizontalAlignment="Left" Height="648" Margin="0,50,0,0" VerticalAlignment="Top" Width="1024"/>
+        <Grid x:Name="Map" Margin="0,50,0,70" d:IsHidden="True">
             <Grid x:Name="Viewer" Margin="0,0,200,0" Background="#FF910000"/>
             <Grid x:Name="ViewSelector" Margin="824,0,0,0" Background="#FFB48B00"/>
         </Grid>
-        <Grid x:Name="ViewOrder" Margin="0,50,300,70" Background="#FF0099B2"/>
-        <Grid x:Name="Menu" Margin="0,50,300,70" Background="#FF5100B2"/>
-        <Grid x:Name="Pay" Margin="0,50,300,70" Background="#FF0008B2"/>
+        <Grid x:Name="ViewOrder" Margin="0,50,300,70" Background="#FF0099B2" d:IsHidden="True"/>
+        <Grid x:Name="Menu" Margin="0,50,300,70" Background="#FF5100B2" d:IsHidden="True"/>
+        <Grid x:Name="Pay" Margin="0,50,300,70" Background="#FF7A7979">
+            <Button x:Name="PayAllButton" Content="Pay All" HorizontalAlignment="Left" Height="70" Margin="51,368.5,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FFF4982B" FontSize="24"/>
+            <Button x:Name="PaySelectedButton" Content="Pay Selected" HorizontalAlignment="Left" Height="70" Margin="401.5,368.5,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FFF4982B" FontSize="24"/>
+            <TextBlock HorizontalAlignment="Left" Height="64.5" Margin="51,273.538,0,0" TextWrapping="Wrap" Text="Total Remaining:" VerticalAlignment="Top" Width="225" FontWeight="Bold" FontSize="24" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Left" Height="56.538" Margin="401.5,273.538,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="211.5" FontWeight="Bold" FontSize="24" Foreground="White" Text="Total Selected:"/>
+            <TextBlock x:Name="TotalRemaining" HorizontalAlignment="Left" Height="37.038" Margin="247.5,273.538,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="24"><Run Foreground="#FF31E451" Text="$$$"/></TextBlock>
+            <TextBlock x:Name="TotalSelected" HorizontalAlignment="Left" Height="37.038" Margin="582,273.538,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="24"><Run Foreground="#FF31E451" Text="$$$"/></TextBlock>
+        </Grid>
         <Grid x:Name="ItemList" Margin="724,50,0,70" Background="#FF7D8040">
             <ScrollViewer x:Name="Scroller" Margin="0">
                 <UniformGrid x:Name="Items">
@@ -67,8 +75,27 @@
             </ScrollViewer>
         </Grid>
         <Grid x:Name="HeaderFooter">
-            <Grid x:Name="Header" Height="50" VerticalAlignment="Top" Background="#FF00FF17"/>
-            <Grid x:Name="Footer" Height="70" VerticalAlignment="Bottom" Background="#FF00FF17"/>
+            <Grid x:Name="Header" Height="50" VerticalAlignment="Top" Background="#FF7A7979">
+                <TextBlock x:Name="HeaderScreenName" HorizontalAlignment="Left" Height="30" Margin="399,10,0,0" TextWrapping="Wrap" Text="Screen Name" VerticalAlignment="Top" Width="225" FontWeight="Bold" Foreground="White" FontSize="24"/>
+                <TextBlock HorizontalAlignment="Left" Height="30" Margin="868,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" FontWeight="Bold" FontSize="24" Foreground="White" Text="Table #"/>
+            </Grid>
+            <Grid x:Name="Footer" Height="70" VerticalAlignment="Bottom" Background="#FF7A7979">
+                <Grid x:Name="MapButton" Margin="0,0,824,0" Background="#FF7A7979" MouseDown="MapButton_MouseDown">
+                    <TextBlock HorizontalAlignment="Left" Height="30.5" Margin="73,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" FontWeight="Bold" FontSize="24" Foreground="White"><Run Text="Map"/><LineBreak/><Run/></TextBlock>
+                </Grid>
+                <Grid x:Name="ViewOrderButton" Margin="206,0,618,0" Background="#FF7A7979" MouseDown="ViewOrderButton_MouseDown">
+                    <TextBlock HorizontalAlignment="Left" Height="34" Margin="34,19,0,0" TextWrapping="Wrap" Text="View Order" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="24" Foreground="White"/>
+                </Grid>
+                <Grid x:Name="MenuButton" Margin="412,0" Background="#FF7A7979" MouseDown="MenuButton_MouseDown">
+                    <TextBlock HorizontalAlignment="Left" Height="31" Margin="67,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" FontWeight="Bold" FontSize="24" Foreground="White"><Run Text="Menu"/><LineBreak/><Run/></TextBlock>
+                </Grid>
+                <Grid x:Name="PayButton" Margin="618,0,206,0" Background="#FF7A7979" MouseDown="PayButton_MouseDown">
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="78.5,19,0,0" TextWrapping="Wrap" Text="Pay" VerticalAlignment="Top" Width="43" FontWeight="Bold" FontSize="24" Foreground="White"/>
+                </Grid>
+                <Grid x:Name="MoreButton" Margin="824,0,0,0" Background="#FF7A7979" MouseDown="MoreButton_MouseDown">
+                    <TextBlock HorizontalAlignment="Left" Height="33" Margin="69,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" FontWeight="Bold" FontSize="24" Foreground="White"><Run Text="More"/><LineBreak/><Run/></TextBlock>
+                </Grid>
+            </Grid>
         </Grid>
         <Grid x:Name="LoginScreen" Background="#FF7A7979" d:IsHidden="True">
             <Canvas Margin="594.999,10,287.251,536.483">
@@ -151,7 +178,7 @@
             <TextBlock x:Name="PasswordText" HorizontalAlignment="Left" Height="58.459" Margin="191.078,434.786,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239.681" FontWeight="Bold" FontSize="36" Foreground="White" Text="Password:"/>
             <TextBox x:Name="Username" HorizontalAlignment="Left" Height="60" Margin="430.759,348.56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" FontSize="36" FontWeight="Bold" BorderBrush="White" Foreground="White" Background="{x:Null}"/>
             <PasswordBox x:Name="Password" HorizontalAlignment="Left" Height="60" Margin="430.759,434.786,0,0" VerticalAlignment="Top" Width="400" Background="{x:Null}" BorderBrush="White" Foreground="White" FontSize="36"/>
-            <Button x:Name="LoginButton" Content="Login&#xA;" HorizontalAlignment="Left" Height="39.459" Margin="417.248,548.78,0,0" VerticalAlignment="Top" Width="189.99" Foreground="White" Background="#FFF4982B" BorderBrush="{x:Null}" FontWeight="Bold" FontSize="24"/>
+            <Button x:Name="LoginButton" Content="Login&#xA;" HorizontalAlignment="Left" Height="39.459" Margin="417.248,548.78,0,0" VerticalAlignment="Top" Width="189.99" Foreground="White" Background="#FFF4982B" BorderBrush="{x:Null}" FontWeight="Bold" FontSize="24" Click="LoginButton_Click"/>
         </Grid>
     </Grid>
 </Window>
