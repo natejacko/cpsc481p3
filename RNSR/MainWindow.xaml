@@ -57,21 +57,32 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid x:Name="MainGrid">
-        <Grid x:Name="More" Margin="0,50,0,70" Background="#FF4D610B">
+        <Grid x:Name="More" Margin="0,50,0,70" Background="#FF4D610B" d:IsHidden="True">
             <Button x:Name="LogoutButton" Content="LOGOUT" Width="252" Margin="0" Height="99.46" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFF4982B" BorderBrush="{x:Null}" Click="LogoutButton_Click"/>
         </Grid>
         <Grid x:Name="Map" Margin="0,50,0,70" d:IsHidden="True">
             <Grid x:Name="Viewer" Margin="0,0,200,0" Background="#FF910000"/>
             <Grid x:Name="ViewSelector" Margin="824,0,0,0" Background="#FFB48B00"/>
         </Grid>
-        <Grid x:Name="ViewOrder" Margin="0,50,300,70" Background="#FF0099B2" d:IsHidden="True"/>
-        <Grid x:Name="Menu" Margin="0,50,300,70" Background="#FF5100B2">
+        <Grid x:Name="ViewOrder" Margin="0,50,300,70" Background="#FF0099B2">
+            <Button x:Name="SendAll" Content="All" HorizontalAlignment="Left" VerticalAlignment="Top" Width="185.667" Margin="25.333,175.992,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="66.627" FontSize="24" Click="SendAll_Click"/>
+            <Button x:Name="SendSelected" Content="Selected" HorizontalAlignment="Left" VerticalAlignment="Top" Width="185.667" Margin="25.333,274.657,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="66.627" FontSize="24" Click="SendSelected_Click"/>
+            <TextBlock HorizontalAlignment="Left" Margin="53.332,92.409,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="133.667" Height="78.583"><Run Text="Send "/><Run Text="Items"/><LineBreak/><Run Text="To "/><Run Text="Kitchen"/><Run Text=":"/></TextBlock>
+            <Button x:Name="ModifySelected" Content="Modify Selected" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208.334" Margin="472,175.992,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="66.627" FontSize="24"/>
+            <Button x:Name="RemoveSelected" Content="Remove Selected" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208.334" Margin="472,274.657,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="66.627" FontSize="24" Click="RemoveSelected_Click"/>
+            <TextBlock HorizontalAlignment="Left" Margin="514.665,125.742,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="133.667" Height="45.25" Text="Edit Items:"/>
+            <TextBlock HorizontalAlignment="Left" Margin="25.333,479.064,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="185.667" Height="34.583"><Run Text="Item"/><Run Text=" "/><Run Text="Description"/><Run Text=":"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="154.667,591.467,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="63" Height="34.583" Text="Price:"/>
+            <TextBox HorizontalAlignment="Left" Height="100.258" Margin="222.667,479.064,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="472"/>
+            <TextBox HorizontalAlignment="Left" Height="34.583" Margin="222.667,596.322,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="111"/>
+        </Grid>
+        <Grid x:Name="Menu" Margin="0,50,300,70" Background="#FF5100B2" d:IsHidden="True">
             <Button x:Name="TestButton" Content="TEST ITEM1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="103.5" Height="33.46" Click="TestButton_Click"/>
             <Button x:Name="TestButton2" Content="TEST ITEM2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="103.5" Height="33.46" Click="TestButton2_Click" Margin="0,33.46,0,0"/>
             <Button x:Name="TestGetSelected" Content="GET SELECTED&#xD;&#xA;INFO" HorizontalAlignment="Left" VerticalAlignment="Top" Width="103.5" Margin="0,66.92,0,0" Height="34.627" Click="TestGetSelected_Click"/>
             <TextBlock x:Name="TestTotalPrice" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Total Price of Selected: " VerticalAlignment="Top" Margin="0,101.547,0,0" Height="33.294" Width="103.5" Background="#FFA40000"/>
         </Grid>
-        <Grid x:Name="Pay" Margin="0,50,300,70" Background="#FF7A7979">
+        <Grid x:Name="Pay" Margin="0,50,300,70" Background="#FF7A7979" d:IsHidden="True">
             <Button x:Name="PayAllButton" Content="Pay All" HorizontalAlignment="Left" Height="70" Margin="51,368.5,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FFF4982B" FontSize="24" Click="PayAllButton_Click"/>
             <Button x:Name="PaySelectedButton" Content="Pay Selected" HorizontalAlignment="Left" Height="70" Margin="401.5,368.5,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FFF4982B" FontSize="24" Click="PaySelectedButton_Click"/>
             <TextBlock HorizontalAlignment="Left" Height="64.5" Margin="51,273.538,0,0" TextWrapping="Wrap" Text="Total Remaining:" VerticalAlignment="Top" Width="225" FontWeight="Bold" FontSize="24" Foreground="White"/>

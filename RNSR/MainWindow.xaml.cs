@@ -218,5 +218,32 @@ namespace RNSR
                 Items.Children.Remove(item);
             }
         }
+
+        private void SendAll_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (AnItemControl anItem in Items.Children)
+            {
+                anItem.ItemNo.Visibility = Visibility.Hidden;
+                anItem.ItemYes.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void SendSelected_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (AnItemControl anItem in selectedItems)
+            {
+                anItem.ItemNo.Visibility = Visibility.Hidden;
+                anItem.ItemYes.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void RemoveSelected_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (AnItemControl anItem in selectedItems)
+            {
+                Items.Children.Remove(anItem);
+            }
+            selectedItems.Clear();
+        }
     }
 }
