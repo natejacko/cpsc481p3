@@ -30,7 +30,7 @@ namespace RNSR
             this.price = price;
             this.selectedItems = selectedItems;
             this.ItemDescription.Text = description;
-            this.ItemPrice.Text = String.Format("{0:C2}", price);
+            this.ItemPrice.Text = String.Format("{0:C2}", price); //Defaults to regional format: $0.00
             this.ItemNo.Visibility = Visibility.Visible;
             this.ItemYes.Visibility = Visibility.Hidden;
         }
