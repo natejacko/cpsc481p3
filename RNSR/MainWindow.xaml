@@ -65,16 +65,13 @@
             <Grid x:Name="ViewSelector" Margin="824,0,0,0" Background="#FFB48B00"/>
         </Grid>
         <Grid x:Name="ViewOrder" Margin="0,50,300,70" Background="#FF0099B2">
+            <Rectangle x:Name="ToggleViewer" Fill="#FF0099B2" HorizontalAlignment="Left" Height="66.627" VerticalAlignment="Top" Width="43.666" Margin="680.334,175.992,0,0"/>
             <Button x:Name="SendAll" Content="All" HorizontalAlignment="Left" VerticalAlignment="Top" Width="185.667" Margin="25.333,175.992,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="66.627" FontSize="24" Click="SendAll_Click"/>
             <Button x:Name="SendSelected" Content="Selected" HorizontalAlignment="Left" VerticalAlignment="Top" Width="185.667" Margin="25.333,274.657,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="66.627" FontSize="24" Click="SendSelected_Click"/>
             <TextBlock HorizontalAlignment="Left" Margin="53.332,92.409,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="133.667" Height="78.583"><Run Text="Send "/><Run Text="Items"/><LineBreak/><Run Text="To "/><Run Text="Kitchen"/><Run Text=":"/></TextBlock>
-            <Button x:Name="ModifySelected" Content="Modify Selected" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208.334" Margin="472,175.992,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="66.627" FontSize="24"/>
+            <Button x:Name="ModifySelected" Content="Allow Modifying" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208.334" Margin="472,175.992,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="66.627" FontSize="24" Click="ModifySelected_Click"/>
             <Button x:Name="RemoveSelected" Content="Remove Selected" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208.334" Margin="472,274.657,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="66.627" FontSize="24" Click="RemoveSelected_Click"/>
             <TextBlock HorizontalAlignment="Left" Margin="514.665,125.742,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="133.667" Height="45.25" Text="Edit Items:"/>
-            <TextBlock HorizontalAlignment="Left" Margin="25.333,479.064,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="185.667" Height="34.583"><Run Text="Item"/><Run Text=" "/><Run Text="Description"/><Run Text=":"/></TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="154.667,591.467,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="63" Height="34.583" Text="Price:"/>
-            <TextBox HorizontalAlignment="Left" Height="100.258" Margin="222.667,479.064,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="472"/>
-            <TextBox HorizontalAlignment="Left" Height="34.583" Margin="222.667,596.322,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="111"/>
         </Grid>
         <Grid x:Name="Menu" Margin="0,50,300,70" Background="#FF5100B2" d:IsHidden="True">
             <Button x:Name="TestButton" Content="TEST ITEM1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="103.5" Height="33.46" Click="TestButton_Click"/>
@@ -117,6 +114,12 @@
                     <TextBlock HorizontalAlignment="Left" Height="33" Margin="69,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" FontWeight="Bold" FontSize="24" Foreground="White"><Run Text="More"/><LineBreak/><Run/></TextBlock>
                 </Grid>
             </Grid>
+        </Grid>
+        <Grid x:Name="ModBlock">
+            <Rectangle x:Name="FootBlock" Fill="#807A7979" Height="70" VerticalAlignment="Bottom" Margin="0"/>
+            <Rectangle x:Name="AllBlock" Fill="#807A7979" Height="64.999" VerticalAlignment="Top" Margin="26.667,226.667,813.666,0"/>
+            <Rectangle x:Name="SelectedBlock" Fill="#807A7979" Height="65" VerticalAlignment="Top" Margin="26.667,325.333,0,0" HorizontalAlignment="Left" Width="183.667"/>
+            <Rectangle x:Name="RemoveBlock" Fill="#807A7979" Height="65" VerticalAlignment="Top" Margin="473,325.333,0,0" HorizontalAlignment="Left" Width="206.667"/>
         </Grid>
         <Grid x:Name="LoginScreen" Background="#FF7A7979" d:IsHidden="True">
             <Canvas Margin="594.999,10,287.251,536.483">

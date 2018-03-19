@@ -58,10 +58,10 @@
         </EventTrigger>
     </UserControl.Triggers>
     <Grid x:Name="AnItem" Background="#FF4D5F52" Margin="0" HorizontalAlignment="Left" Height="85">
-        <TextBlock x:Name="ItemDescription" TextWrapping="Wrap" Margin="0,0,0,5" Width="223" HorizontalAlignment="Left" Background="#FF838383"><Run Text="ItemD"/><Run Text="escription"/></TextBlock>
-        <TextBlock x:Name="ItemPrice" TextWrapping="Wrap" Text="ItemPrice" VerticalAlignment="Bottom" Height="20" HorizontalAlignment="Left" Width="60" Background="#FF9E9E9E" Margin="223,0,0,5"/>
+        <TextBox x:Name="ItemDescription" HorizontalAlignment="Left" Height="80" TextWrapping="Wrap" Text="ItemDescription" VerticalAlignment="Top" Width="223" Background="#FFD6D6D6" BorderBrush="{x:Null}" BorderThickness="0" Cursor="IBeam"/>
+        <TextBox x:Name="ItemPrice" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="ItemPrice" VerticalAlignment="Top" Width="60" Margin="223,60,0,0" BorderBrush="{x:Null}" BorderThickness="0" Background="White" Cursor="IBeam"/>
         <Image x:Name="ItemNo" HorizontalAlignment="Left" Height="60" Margin="223,0,0,0" VerticalAlignment="Top" Width="60" OpacityMask="#FF898989" Source="NoCheck.png"/>
-        <Image x:Name="ItemYes" HorizontalAlignment="Left" Height="60" Margin="223,0,0,0" VerticalAlignment="Top" Width="60" OpacityMask="#FF898989" Source="YesCheck.png"/>
-        <Button x:Name="Selector" Content="" Margin="0,0,0,5" Background="#00FFFF00" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="Selector_Click" Template="{DynamicResource SelectorTemplate}"/>
+        <Image x:Name="ItemYes" Height="60" Margin="223,0,0,0" VerticalAlignment="Top" Width="60" OpacityMask="#FF898989" Source="YesCheck.png"/>
+        <Button x:Name="Selector" Content="" Margin="0,0,0,5" Background="#00FFFF00" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="Selector_Click" Template="{DynamicResource SelectorTemplate}" d:IsHidden="True"/>
     </Grid>
 </UserControl>

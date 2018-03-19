@@ -35,13 +35,31 @@ namespace RNSR
             this.ItemPrice.Text = String.Format("{0:C2}", price); //Defaults to regional format: $0.00
             this.ItemNo.Visibility = Visibility.Visible;
             this.ItemYes.Visibility = Visibility.Hidden;
+            if (window.allowModify)
+            {
+                this.ItemDescription.IsReadOnly = false;
+                this.ItemPrice.IsReadOnly = false;
+            }
+            else
+            {
+                this.ItemDescription.IsReadOnly = true;
+                this.ItemPrice.IsReadOnly = true;
+            }
+        }
+
+        public void Deselect()
+        {
+            this.ItemDescription.Background = new SolidColorBrush(Color.FromRgb(214, 214, 214));
+            this.selected = false;
+            this.selectedItems.Remove(this);
+            this.window.UpdateSelected();
         }
 
         private void Selector_Click(object sender, RoutedEventArgs e)
         {
             if (this.selected) //If it WAS selected, make it no longer
             {
-                this.ItemDescription.Background = new SolidColorBrush(Color.FromRgb(131, 131, 131));
+                this.ItemDescription.Background = new SolidColorBrush(Color.FromRgb(214, 214, 214));
                 this.selected = false;
                 this.selectedItems.Remove(this);
                 this.window.UpdateSelected();

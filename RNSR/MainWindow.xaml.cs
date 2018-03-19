@@ -22,6 +22,7 @@ namespace RNSR
     public partial class MainWindow : Window
     {
         private List<AnItemControl> selectedItems;
+        public bool allowModify { get; private set; } = false;
 
         public MainWindow()
         {
@@ -33,6 +34,7 @@ namespace RNSR
             ItemList.Visibility = Visibility.Hidden;
             HeaderFooter.Visibility = Visibility.Hidden;
             LoginScreen.Visibility = Visibility.Visible;
+            ModBlock.Visibility = Visibility.Hidden;
 
             selectedItems = new List<AnItemControl>();
         }
@@ -244,6 +246,43 @@ namespace RNSR
                 Items.Children.Remove(anItem);
             }
             selectedItems.Clear();
+        }
+
+        private void ModifySelected_Click(object sender, RoutedEventArgs e)
+        {
+            this.allowModify = !this.allowModify; //Toggle the bool
+            if (this.allowModify)
+            {
+                while(selectedItems.Count > 0)
+                {
+                    AnItemControl anItem = selectedItems.First();
+                    anItem.Deselect();
+                    selectedItems.Remove(anItem);
+                }
+                selectedItems.Clear();
+                ModifySelected.Background = new SolidColorBrush(Color.FromRgb(0, 200, 0));
+                ToggleViewer.Fill = new SolidColorBrush(Color.FromRgb(0, 200, 0));
+                ModBlock.Visibility = Visibility.Visible;
+                foreach (AnItemControl anItem in Items.Children)
+                {
+                    anItem.ItemDescription.IsReadOnly = false;
+                    anItem.ItemPrice.IsReadOnly = false;
+                    anItem.Selector.Visibility = Visibility.Hidden;
+                }
+            }
+            else
+            {
+                ModifySelected.Background = new SolidColorBrush(Color.FromRgb(244, 152, 43));
+                ToggleViewer.Fill = new SolidColorBrush(Color.FromRgb(0, 153, 178));
+                ModBlock.Visibility = Visibility.Hidden;
+                foreach (AnItemControl anItem in Items.Children)
+                {
+                    anItem.ItemDescription.IsReadOnly = true;
+                    anItem.ItemPrice.IsReadOnly = true;
+                    anItem.Selector.Visibility = Visibility.Visible;
+                    //DEBUG: Do error checking on price and update it.
+                }
+            }
         }
     }
 }
