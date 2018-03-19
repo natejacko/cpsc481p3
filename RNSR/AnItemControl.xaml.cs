@@ -20,7 +20,7 @@ namespace RNSR
     /// </summary>
     public partial class AnItemControl : UserControl
     {
-        private bool selected = false;
+        public bool selected { get; private set;  }  = false;
         public float price = 0.00f;
         private List<AnItemControl> selectedItems;
 
@@ -51,7 +51,7 @@ namespace RNSR
             }
         }
 
-        public void sendToKitchen()
+        public void SendToKitchen()
         {
             this.ItemNo.Visibility = Visibility.Hidden;
             this.ItemYes.Visibility = Visibility.Visible;

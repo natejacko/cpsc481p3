@@ -71,15 +71,16 @@
             <Button x:Name="TestGetSelected" Content="GET SELECTED&#xD;&#xA;INFO" HorizontalAlignment="Left" VerticalAlignment="Top" Width="103.5" Margin="0,66.92,0,0" Height="34.627" Click="TestGetSelected_Click"/>
             <TextBlock x:Name="TestTotalPrice" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Total Price of Selected: " VerticalAlignment="Top" Margin="0,101.547,0,0" Height="33.294" Width="103.5" Background="#FFA40000"/>
         </Grid>
-        <Grid x:Name="Pay" Margin="0,50,300,70" Background="#FF7A7979" d:IsHidden="True">
-            <Button x:Name="PayAllButton" Content="Pay All" HorizontalAlignment="Left" Height="70" Margin="51,368.5,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FFF4982B" FontSize="24"/>
-            <Button x:Name="PaySelectedButton" Content="Pay Selected" HorizontalAlignment="Left" Height="70" Margin="401.5,368.5,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FFF4982B" FontSize="24"/>
+        <Grid x:Name="Pay" Margin="0,50,300,70" Background="#FF7A7979">
+            <Button x:Name="PayAllButton" Content="Pay All" HorizontalAlignment="Left" Height="70" Margin="51,368.5,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FFF4982B" FontSize="24" Click="PayAllButton_Click"/>
+            <Button x:Name="PaySelectedButton" Content="Pay Selected" HorizontalAlignment="Left" Height="70" Margin="401.5,439,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FFF4982B" FontSize="24" Click="PaySelectedButton_Click"/>
             <TextBlock HorizontalAlignment="Left" Height="64.5" Margin="51,273.538,0,0" TextWrapping="Wrap" Text="Total Remaining:" VerticalAlignment="Top" Width="225" FontWeight="Bold" FontSize="24" Foreground="White"/>
             <TextBlock HorizontalAlignment="Left" Height="56.538" Margin="401.5,273.538,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="211.5" FontWeight="Bold" FontSize="24" Foreground="White" Text="Total Selected:"/>
-            <TextBlock x:Name="TotalRemaining" HorizontalAlignment="Left" Height="37.038" Margin="247.5,273.538,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="24"><Run Foreground="#FF31E451" Text="$$$"/></TextBlock>
-            <TextBlock x:Name="TotalSelected" HorizontalAlignment="Left" Height="37.038" Margin="582,273.538,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="24"><Run Foreground="#FF31E451" Text="$$$"/></TextBlock>
+            <TextBlock x:Name="TotalRemaining" HorizontalAlignment="Left" Height="37.038" Margin="247.5,273.538,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="24" Foreground="#FF31E451" Text="$0.00"/>
+            <TextBlock x:Name="TotalSelected" HorizontalAlignment="Left" Height="37.038" Margin="582,273.538,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="24" Foreground="#FF31E451" Text="$0.00"/>
+            <Button x:Name="UpdateSelectedButton" Content="Update Selected" HorizontalAlignment="Left" Height="70" Margin="401.5,364,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FFF4982B" FontSize="24" Click="UpdateSelectedButton_Click"/>
         </Grid>
-        <Grid x:Name="ItemList" Margin="724,50,0,70" Background="#FF7D8040" d:IsHidden="True">
+        <Grid x:Name="ItemList" Margin="724,50,0,70" Background="#FF7D8040">
             <ScrollViewer x:Name="Scroller" Margin="0">
                 <StackPanel x:Name="Items"/>
             </ScrollViewer>

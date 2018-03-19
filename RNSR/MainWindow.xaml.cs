@@ -70,6 +70,8 @@ namespace RNSR
                 HeaderFooter.Visibility = Visibility.Visible;
                 MapButton.Background = new SolidColorBrush(Color.FromRgb(135, 40, 40));
                 HeaderScreenName.Text = "Floor Map";
+                Username.Text = "";
+                Password.Password = "";
             }
         }
 
@@ -110,6 +112,19 @@ namespace RNSR
             this.HideAllScreensAfterLogin();
             Pay.Visibility = Visibility.Visible;
             ItemList.Visibility = Visibility.Visible;
+            float totalPrice = 0.00f;
+            float selectedPrice = 0.00f;
+            foreach(object child in Items.Children)
+            {
+                if (child is AnItemControl)
+                {
+                    totalPrice += (child as AnItemControl).price;
+                    if ((child as AnItemControl).selected)
+                        selectedPrice += (child as AnItemControl).price;
+                }
+            }
+            TotalRemaining.Text = totalPrice.ToString("c2");
+            TotalSelected.Text = selectedPrice.ToString("c2");
         }
 
         private void MoreButton_MouseDown(object sender, MouseButtonEventArgs e)
@@ -161,6 +176,47 @@ namespace RNSR
                 totalPrice += anItem.price;
             }
             this.TestTotalPrice.Text = String.Format("Total Price of Selected: {0:C2}", totalPrice);
+        }
+
+        private void UpdateSelectedButton_Click(object sender, RoutedEventArgs e)
+        {
+            float selectedPrice = 0.00f;
+            foreach (object child in Items.Children)
+            {
+                if (child is AnItemControl)
+                {
+                    if((child as AnItemControl).selected)
+                        selectedPrice += (child as AnItemControl).price;
+                }
+            }
+            TotalSelected.Text = selectedPrice.ToString("c2");
+        }
+
+        private void PayAllButton_Click(object sender, RoutedEventArgs e)
+        {
+            TotalRemaining.Text = "$0.00";
+            this.Items.Children.Clear();
+        }
+
+        private void PaySelectedButton_Click(object sender, RoutedEventArgs e)
+        {
+            decimal totalPrice = Decimal.Parse(TotalRemaining.Text, System.Globalization.NumberStyles.Currency);
+            totalPrice -= Decimal.Parse(TotalSelected.Text, System.Globalization.NumberStyles.Currency);
+            TotalRemaining.Text = totalPrice.ToString("c2");
+            TotalSelected.Text = "$0.00";
+            List<AnItemControl> itemControlToRemove = new List<AnItemControl>();
+            foreach(object child in Items.Children)
+            {
+                if(child is AnItemControl)
+                {
+                    if ((child as AnItemControl).selected)
+                        itemControlToRemove.Add((child as AnItemControl));
+                }
+            }
+            foreach(AnItemControl item in itemControlToRemove)
+            {
+                Items.Children.Remove(item);
+            }
         }
     }
 }

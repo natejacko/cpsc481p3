@@ -87,3 +87,5 @@ C:\Users\seanh\source\repos\RNSR\RNSR\bin\Debug\zh-Hans\System.Windows.Interacti
 C:\Users\seanh\source\repos\RNSR\RNSR\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
 C:\Users\seanh\source\repos\RNSR\RNSR\obj\Debug\AnItemControl.g.cs
 C:\Users\seanh\source\repos\RNSR\RNSR\obj\Debug\AnItemControl.baml
+C:\Users\Nate\Desktop\cpsc481p3\RNSR\obj\Debug\AnItemControl.g.cs
+C:\Users\Nate\Desktop\cpsc481p3\RNSR\obj\Debug\AnItemControl.baml
