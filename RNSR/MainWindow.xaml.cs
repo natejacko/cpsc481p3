@@ -281,6 +281,7 @@ namespace RNSR
                     anItem.ItemPrice.IsReadOnly = true;
                     anItem.Selector.Visibility = Visibility.Visible;
                     //DEBUG: Do error checking on price and update it.
+                    //DEBUG: If modified, must re-send to kitchen.
                 }
             }
         }
