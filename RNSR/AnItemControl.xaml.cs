@@ -23,11 +23,13 @@ namespace RNSR
         public bool selected { get; private set;  }  = false;
         public float price = 0.00f;
         private List<AnItemControl> selectedItems;
+        private MainWindow window;
 
-        public AnItemControl(string description, float price, List<AnItemControl> selectedItems)
+        public AnItemControl(string description, float price, List<AnItemControl> selectedItems, MainWindow window)
         {
             InitializeComponent();
             this.price = price;
+            this.window = window;
             this.selectedItems = selectedItems;
             this.ItemDescription.Text = description;
             this.ItemPrice.Text = String.Format("{0:C2}", price); //Defaults to regional format: $0.00
@@ -42,12 +44,14 @@ namespace RNSR
                 this.ItemDescription.Background = new SolidColorBrush(Color.FromRgb(131, 131, 131));
                 this.selected = false;
                 this.selectedItems.Remove(this);
+                this.window.UpdateSelected();
             }
             else //If it was NOT selected, make it so
             {
                 this.ItemDescription.Background = new SolidColorBrush(Color.FromRgb(255, 255, 0));
                 this.selected = true;
                 this.selectedItems.Add(this);
+                this.window.UpdateSelected();
             }
         }
 

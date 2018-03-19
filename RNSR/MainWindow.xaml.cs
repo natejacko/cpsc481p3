@@ -152,7 +152,7 @@ namespace RNSR
         {
             string description = "Bestest burger with dank amounts of ketchup";
             float price = 19.99f;
-            AnItemControl anItem = new AnItemControl(description, price, selectedItems);
+            AnItemControl anItem = new AnItemControl(description, price, selectedItems, this);
             this.Items.Children.Add(anItem);
             this.Scroller.ScrollToEnd();
         }
@@ -162,7 +162,7 @@ namespace RNSR
         {
             string description = "Some lesser burger";
             float price = 9.49f;
-            AnItemControl anItem = new AnItemControl(description, price, selectedItems);
+            AnItemControl anItem = new AnItemControl(description, price, selectedItems, this);
             this.Items.Children.Add(anItem);
             this.Scroller.ScrollToEnd();
         }
@@ -178,14 +178,14 @@ namespace RNSR
             this.TestTotalPrice.Text = String.Format("Total Price of Selected: {0:C2}", totalPrice);
         }
 
-        private void UpdateSelectedButton_Click(object sender, RoutedEventArgs e)
+        public void UpdateSelected()
         {
             float selectedPrice = 0.00f;
             foreach (object child in Items.Children)
             {
                 if (child is AnItemControl)
                 {
-                    if((child as AnItemControl).selected)
+                    if ((child as AnItemControl).selected)
                         selectedPrice += (child as AnItemControl).price;
                 }
             }
