@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -180,37 +181,10 @@ namespace RNSR
             ItemList.Visibility = Visibility.Hidden;
             HeaderFooter.Visibility = Visibility.Hidden;
             LoginScreen.Visibility = Visibility.Visible;
-        }
 
-        //This is a button to be removed by the final build. It simply adds a default item to the ItemViewer for testing.
-        private void TestButton_Click(object sender, RoutedEventArgs e)
-        {
-            string description = "Bestest burger with dank amounts of ketchup";
-            float price = 19.99f;
-            AnItemControl anItem = new AnItemControl(description, price, selectedItems, this);
-            this.Items.Children.Add(anItem);
-            this.Scroller.ScrollToEnd();
-        }
-
-        //This is a button to be removed by the final build. It simply adds a default item to the ItemViewer for testing.
-        private void TestButton2_Click(object sender, RoutedEventArgs e)
-        {
-            string description = "Some lesser burger";
-            float price = 9.49f;
-            AnItemControl anItem = new AnItemControl(description, price, selectedItems, this);
-            this.Items.Children.Add(anItem);
-            this.Scroller.ScrollToEnd();
-        }
-
-        //This is a button to be removed by the final build. It simply displays some item info
-        private void TestGetSelected_Click(object sender, RoutedEventArgs e)
-        {
-            float totalPrice = 0;
-            foreach (AnItemControl anItem in selectedItems)
-            {
-                totalPrice += anItem.price;
-            }
-            this.TestTotalPrice.Text = String.Format("Total Price of Selected: {0:C2}", totalPrice);
+            //Debug: Should reset the item viewer. (remove all children)
+            //Should reset all Menu item note boxes. (remove all children, repopulate them)
+            //Note: The above requires that tables keep track of their own item viewers.
         }
 
         public void UpdateSelected()
@@ -387,7 +361,7 @@ namespace RNSR
 
         private void DrinksButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (UIElement child in SubCategoryView.Children) //Set all food subcategories to hidden
+            foreach (UIElement child in SubCategoryView.Children)
             {
                 child.Visibility = Visibility.Hidden;
             }
@@ -396,11 +370,30 @@ namespace RNSR
 
         private void BurgersButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (UIElement child in SubCategoryView.Children) //Set all food subcategories to hidden
+            foreach (UIElement child in SubCategoryView.Children)
             {
                 child.Visibility = Visibility.Hidden;
             }
             BurgersView.Visibility = Visibility.Visible;
+        }
+
+        private void AddCustomItem_Click(object sender, RoutedEventArgs e)
+        {
+            string description = this.CustomDescription.Text;
+            string tempPrice = this.CustomPrice.Text;
+            float price = float.Parse(tempPrice, CultureInfo.InvariantCulture.NumberFormat); //DEBUG: Needs error checking
+            AnItemControl anItem = new AnItemControl(description, price, selectedItems, this);
+            this.Items.Children.Add(anItem);
+            this.Scroller.ScrollToEnd();
+        }
+
+        private void CustomButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (UIElement child in SubCategoryView.Children)
+            {
+                child.Visibility = Visibility.Hidden;
+            }
+            CustomView.Visibility = Visibility.Visible;
         }
     }
 }
