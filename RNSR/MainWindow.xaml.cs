@@ -36,6 +36,11 @@ namespace RNSR
             LoginScreen.Visibility = Visibility.Visible;
             ModBlock.Visibility = Visibility.Hidden;
 
+            foreach(UIElement child in SubCategoryView.Children) //Set all food sub-menus to hidden
+            {
+                child.Visibility = Visibility.Hidden;
+            }
+
             selectedItems = new List<AnItemControl>();
         }
 
