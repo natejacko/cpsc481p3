@@ -182,9 +182,13 @@ namespace RNSR
             HeaderFooter.Visibility = Visibility.Hidden;
             LoginScreen.Visibility = Visibility.Visible;
 
-            //Debug: Should reset the item viewer. (remove all children)
+            //DEBUG: 
+            //Should reset the item viewer. (remove all children)
             //Should reset all Menu item note boxes. (remove all children, repopulate them)
             //Note: The above requires that tables keep track of their own item viewers.
+            //Should replay the login animation
+            //Need to add: Search/filter
+            //Need to add: Common custom selections
         }
 
         public void UpdateSelected()
