@@ -21,8 +21,9 @@ namespace RNSR
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<AnItemControl> selectedItems;
+        public List<AnItemControl> selectedItems;
         public bool allowModify { get; private set; } = false;
+        public List<object> itemDataBase;
 
         public MainWindow()
         {
@@ -36,12 +37,39 @@ namespace RNSR
             LoginScreen.Visibility = Visibility.Visible;
             ModBlock.Visibility = Visibility.Hidden;
 
-            foreach(UIElement child in SubCategoryView.Children) //Set all food sub-menus to hidden
+            PopulateFromDB(); //Creates all food subcategories based on a fake database
+            foreach(UIElement child in SubCategoryView.Children) //Set all food subcategories to hidden
             {
                 child.Visibility = Visibility.Hidden;
             }
 
             selectedItems = new List<AnItemControl>();
+        }
+
+        private void PopulateFromDB()
+        {
+            //We can imagine these lists are actually rows pulled from a database
+            //Number of names and prices must match up
+            List<string> drinkNames = new List<string>()
+                { "Apple Juice", "Banana Smoothie", "Cream Soda", "Fire Ant Shot" };
+            List<float> drinkPrices = new List<float>()
+                { 2.99f, 4.99f, 3.99f, 9.99f };
+
+            List<string> burgerNames = new List<string>()
+                { "Burger1", "Burger2", "Burger3", "Burger4", "Burger5", "Burger6", "Burger7", "Burger8", "Burger9", "Burger10", "Burger11", "Burger12", "Burger13", };
+            List<float> burgerPrices = new List<float>()
+                { 2.99f, 4.99f, 3.99f, 9.99f, 2.99f, 4.99f, 3.99f, 9.99f, 2.99f, 4.99f, 9.99f, 2.99f, 4.99f};
+
+            for (int i = 0; i < drinkNames.Count; i++)
+            {
+                AddItemControl anItem = new AddItemControl(drinkNames[i], drinkPrices[i], this);
+                this.DrinksView.Children.Add(anItem);
+            }
+            for (int i = 0; i < burgerNames.Count; i++)
+            {
+                AddItemControl anItem = new AddItemControl(burgerNames[i], burgerPrices[i], this);
+                this.BurgersView.Children.Add(anItem);
+            }
         }
 
         private void ResetButtons()
@@ -355,6 +383,24 @@ namespace RNSR
             PatioViewer.Visibility = Visibility.Visible;
             View2.Background = new SolidColorBrush(Color.FromRgb(133, 20, 20));
             View1.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+        }
+
+        private void DrinksButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (UIElement child in SubCategoryView.Children) //Set all food subcategories to hidden
+            {
+                child.Visibility = Visibility.Hidden;
+            }
+            DrinksView.Visibility = Visibility.Visible;
+        }
+
+        private void BurgersButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (UIElement child in SubCategoryView.Children) //Set all food subcategories to hidden
+            {
+                child.Visibility = Visibility.Hidden;
+            }
+            BurgersView.Visibility = Visibility.Visible;
         }
     }
 }

@@ -126,3 +126,5 @@ U:\HCIPROJECT\repo\RNSR\obj\Debug\RNSR.csproj.GenerateResource.Cache
 U:\HCIPROJECT\repo\RNSR\obj\Debug\RNSR.csproj.CoreCompileInputs.cache
 U:\HCIPROJECT\repo\RNSR\obj\Debug\RNSR.exe
 U:\HCIPROJECT\repo\RNSR\obj\Debug\RNSR.pdb
+C:\Users\seanh\source\repos\RNSR\RNSR\obj\Debug\AddItemControl.g.cs
+C:\Users\seanh\source\repos\RNSR\RNSR\obj\Debug\AddItemControl.baml
