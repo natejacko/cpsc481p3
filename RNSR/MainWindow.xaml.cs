@@ -285,5 +285,71 @@ namespace RNSR
                 }
             }
         }
+
+        private void Table1_Click(object sender, RoutedEventArgs e)
+        {
+            HeaderTableNo.Text = "Table #1";
+        }
+
+        private void Table2_Click(object sender, RoutedEventArgs e)
+        {
+            HeaderTableNo.Text = "Table #2";
+        }
+
+        private void Table3_Click(object sender, RoutedEventArgs e)
+        {
+            HeaderTableNo.Text = "Table #3";
+        }
+
+        private void Table4_Click(object sender, RoutedEventArgs e)
+        {
+            HeaderTableNo.Text = "Table #4";
+        }
+
+        private void Table5_Click(object sender, RoutedEventArgs e)
+        {
+            HeaderTableNo.Text = "Table #5";
+        }
+
+        private void Table6_Click(object sender, RoutedEventArgs e)
+        {
+            HeaderTableNo.Text = "Table #6";
+        }
+
+        private void Table7_Click(object sender, RoutedEventArgs e)
+        {
+            HeaderTableNo.Text = "Table #7";
+        }
+
+        private void Table8_Click(object sender, RoutedEventArgs e)
+        {
+            HeaderTableNo.Text = "Table #8";
+        }
+
+        private void Table9_Click(object sender, RoutedEventArgs e)
+        {
+            HeaderTableNo.Text = "Table #9";
+        }
+
+        private void Table10_Click(object sender, RoutedEventArgs e)
+        {
+            HeaderTableNo.Text = "Table #10";
+        }
+
+        private void View1_Click(object sender, RoutedEventArgs e)
+        {
+            PatioViewer.Visibility = Visibility.Hidden;
+            Viewer1.Visibility = Visibility.Visible;
+            View1.Background = new SolidColorBrush(Color.FromRgb(133, 20, 20));
+            View2.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+        }
+
+        private void View2_Click(object sender, RoutedEventArgs e)
+        {
+            Viewer1.Visibility = Visibility.Hidden;
+            PatioViewer.Visibility = Visibility.Visible;
+            View2.Background = new SolidColorBrush(Color.FromRgb(133, 20, 20));
+            View1.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+        }
     }
 }
