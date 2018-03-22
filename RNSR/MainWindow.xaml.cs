@@ -182,13 +182,20 @@ namespace RNSR
             HeaderFooter.Visibility = Visibility.Hidden;
             LoginScreen.Visibility = Visibility.Visible;
 
-            //DEBUG: 
+            //DEBUG LIST
+            //ON LOGOUT:
             //Should reset the item viewer. (remove all children)
             //Should reset all Menu item note boxes. (remove all children, repopulate them)
             //Note: The above requires that tables keep track of their own item viewers.
             //Should replay the login animation
-            //Need to add: Search/filter
-            //Need to add: Common custom selections
+            //ITEM CONTROL/PRICE ENTERING
+            //Do error checking on price and update it.
+            //If modified, must re-send to kitchen.
+            //NEED TO ADD:
+            //Search/filter
+            //Common custom selections
+            //Should highlight the currently selected table (obvious feedback)
+
         }
 
         public void UpdateSelected()
@@ -291,8 +298,6 @@ namespace RNSR
                     anItem.ItemDescription.IsReadOnly = true;
                     anItem.ItemPrice.IsReadOnly = true;
                     anItem.Selector.Visibility = Visibility.Visible;
-                    //DEBUG: Do error checking on price and update it.
-                    //DEBUG: If modified, must re-send to kitchen.
                 }
             }
         }
