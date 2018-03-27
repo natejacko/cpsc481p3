@@ -169,3 +169,5 @@ C:\Users\RaylazorIII\Desktop\481REPO\RNSR\obj\Debug\RNSR.csproj.GenerateResource
 C:\Users\RaylazorIII\Desktop\481REPO\RNSR\obj\Debug\RNSR.csproj.CoreCompileInputs.cache
 C:\Users\RaylazorIII\Desktop\481REPO\RNSR\obj\Debug\RNSR.exe
 C:\Users\RaylazorIII\Desktop\481REPO\RNSR\obj\Debug\RNSR.pdb
+C:\Users\seanh\source\repos\RNSR\RNSR\obj\Debug\ItemListControl.g.cs
+C:\Users\seanh\source\repos\RNSR\RNSR\obj\Debug\ItemListControl.baml

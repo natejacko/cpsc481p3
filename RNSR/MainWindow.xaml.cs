@@ -25,6 +25,8 @@ namespace RNSR
         public List<AnItemControl> selectedItems;
         public bool allowModify { get; private set; } = false;
         public List<object> itemDataBase;
+        public List<ItemListControl> tableItemLists;
+        public int selectedTable;
 
         public MainWindow()
         {
@@ -33,7 +35,7 @@ namespace RNSR
             ViewOrder.Visibility = Visibility.Hidden;
             Menu.Visibility = Visibility.Hidden;
             Pay.Visibility = Visibility.Hidden;
-            ItemList.Visibility = Visibility.Hidden;
+            ItemListGrid.Visibility = Visibility.Hidden;
             HeaderFooter.Visibility = Visibility.Hidden;
             LoginScreen.Visibility = Visibility.Visible;
             ModBlock.Visibility = Visibility.Hidden;
@@ -45,6 +47,20 @@ namespace RNSR
             }
 
             selectedItems = new List<AnItemControl>();
+            tableItemLists = new List<ItemListControl>();
+
+            PopulateTableItemLists(); //Creates an ItemList viewer for each individual table
+        }
+
+        private void PopulateTableItemLists()
+        {
+            for(int i = 0; i < 10; i++) //currently 10 tables
+            {
+                ItemListControl anItemList = new ItemListControl();
+                anItemList.Visibility = Visibility.Hidden;
+                tableItemLists.Add(anItemList);
+                ItemListGrid.Children.Add(anItemList);
+            }
         }
 
         private void PopulateFromDB()
@@ -88,7 +104,7 @@ namespace RNSR
             ViewOrder.Visibility = Visibility.Hidden;
             Menu.Visibility = Visibility.Hidden;
             Pay.Visibility = Visibility.Hidden;
-            ItemList.Visibility = Visibility.Hidden;
+            ItemListGrid.Visibility = Visibility.Hidden;
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -110,6 +126,9 @@ namespace RNSR
                 Password.Password = "";
             }
             Floor1Selector_Click(sender, e); //Initial state of floor map
+            HeaderTableNo.Text = String.Format("Table #{0:D}", 1); //Initial table selected
+            selectedTable = 1;
+            tableItemLists[0].Visibility = Visibility.Visible;
         }
 
         private void MapButton_MouseDown(object sender, MouseButtonEventArgs e)
@@ -128,7 +147,7 @@ namespace RNSR
             HeaderScreenName.Text = "View Order";
             this.HideAllScreensAfterLogin();
             ViewOrder.Visibility = Visibility.Visible;
-            ItemList.Visibility = Visibility.Visible;
+            ItemListGrid.Visibility = Visibility.Visible;
         }
 
         private void MenuButton_MouseDown(object sender, MouseButtonEventArgs e)
@@ -138,7 +157,22 @@ namespace RNSR
             HeaderScreenName.Text = "Add Items to Order";
             this.HideAllScreensAfterLogin();
             Menu.Visibility = Visibility.Visible;
-            ItemList.Visibility = Visibility.Visible;
+            ItemListGrid.Visibility = Visibility.Visible;
+            
+            //Reset all text fields for adding items
+            foreach(object aView in SubCategoryView.Children)
+            {
+                if(aView is WrapPanel)
+                {
+                    WrapPanel tempView = (WrapPanel)aView;
+                    foreach(AddItemControl anItem in tempView.Children)
+                    {
+                        anItem.AddItemNotes.Text = "";
+                    }
+                }
+            }
+            CustomDescription.Text = "";
+            CustomPrice.Text = "";
         }
 
         private void PayButton_MouseDown(object sender, MouseButtonEventArgs e)
@@ -148,10 +182,10 @@ namespace RNSR
             HeaderScreenName.Text = "Pay for Order";
             this.HideAllScreensAfterLogin();
             Pay.Visibility = Visibility.Visible;
-            ItemList.Visibility = Visibility.Visible;
+            ItemListGrid.Visibility = Visibility.Visible;
             float totalPrice = 0.00f;
             float selectedPrice = 0.00f;
-            foreach(object child in Items.Children)
+            foreach(object child in tableItemLists[selectedTable - 1].Items.Children)
             {
                 if (child is AnItemControl)
                 {
@@ -179,7 +213,7 @@ namespace RNSR
             ViewOrder.Visibility = Visibility.Hidden;
             Menu.Visibility = Visibility.Hidden;
             Pay.Visibility = Visibility.Hidden;
-            ItemList.Visibility = Visibility.Hidden;
+            ItemListGrid.Visibility = Visibility.Hidden;
             HeaderFooter.Visibility = Visibility.Hidden;
             LoginScreen.Visibility = Visibility.Visible;
 
@@ -189,7 +223,6 @@ namespace RNSR
 
             //DEBUG LIST
             //ON LOGOUT:
-            //Should reset the item viewer. (remove all children)
             //Should reset all Menu item note boxes. (remove all children, repopulate them)
             //Note: The above requires that tables keep track of their own item viewers.
             //ITEM CONTROL/PRICE ENTERING
@@ -203,7 +236,7 @@ namespace RNSR
         public void UpdateSelected()
         {
             float selectedPrice = 0.00f;
-            foreach (object child in Items.Children)
+            foreach (object child in tableItemLists[selectedTable - 1].Items.Children)
             {
                 if (child is AnItemControl)
                 {
@@ -217,7 +250,7 @@ namespace RNSR
         private void PayAllButton_Click(object sender, RoutedEventArgs e)
         {
             TotalRemaining.Text = "$0.00";
-            this.Items.Children.Clear();
+            tableItemLists[selectedTable - 1].Items.Children.Clear();
         }
 
         private void PaySelectedButton_Click(object sender, RoutedEventArgs e)
@@ -227,7 +260,7 @@ namespace RNSR
             TotalRemaining.Text = totalPrice.ToString("c2");
             TotalSelected.Text = "$0.00";
             List<AnItemControl> itemControlToRemove = new List<AnItemControl>();
-            foreach(object child in Items.Children)
+            foreach(object child in tableItemLists[selectedTable - 1].Items.Children)
             {
                 if(child is AnItemControl)
                 {
@@ -237,13 +270,13 @@ namespace RNSR
             }
             foreach(AnItemControl item in itemControlToRemove)
             {
-                Items.Children.Remove(item);
+                tableItemLists[selectedTable - 1].Items.Children.Remove(item);
             }
         }
 
         private void SendAll_Click(object sender, RoutedEventArgs e)
         {
-            foreach (AnItemControl anItem in Items.Children)
+            foreach (AnItemControl anItem in tableItemLists[selectedTable - 1].Items.Children)
             {
                 anItem.ItemNo.Visibility = Visibility.Hidden;
                 anItem.ItemYes.Visibility = Visibility.Visible;
@@ -263,7 +296,7 @@ namespace RNSR
         {
             foreach (AnItemControl anItem in selectedItems)
             {
-                Items.Children.Remove(anItem);
+                tableItemLists[selectedTable - 1].Items.Children.Remove(anItem);
             }
             selectedItems.Clear();
         }
@@ -283,7 +316,7 @@ namespace RNSR
                 ModifySelected.Background = new SolidColorBrush(Color.FromRgb(0, 200, 0));
                 ToggleViewer.Fill = new SolidColorBrush(Color.FromRgb(0, 200, 0));
                 ModBlock.Visibility = Visibility.Visible;
-                foreach (AnItemControl anItem in Items.Children)
+                foreach (AnItemControl anItem in tableItemLists[selectedTable - 1].Items.Children)
                 {
                     anItem.ItemDescription.IsReadOnly = false;
                     anItem.ItemPrice.IsReadOnly = false;
@@ -295,7 +328,7 @@ namespace RNSR
                 ModifySelected.Background = new SolidColorBrush(Color.FromRgb(244, 152, 43));
                 ToggleViewer.Fill = new SolidColorBrush(Color.FromRgb(0, 153, 178));
                 ModBlock.Visibility = Visibility.Hidden;
-                foreach (AnItemControl anItem in Items.Children)
+                foreach (AnItemControl anItem in tableItemLists[selectedTable - 1].Items.Children)
                 {
                     anItem.ItemDescription.IsReadOnly = true;
                     anItem.ItemPrice.IsReadOnly = true;
@@ -358,6 +391,7 @@ namespace RNSR
         {
             Button table = (Button)thisTable;
             HeaderTableNo.Text = String.Format("Table #{0:D}", num);
+            selectedTable = num;
 
             //Change all other table colors to default, and this one to highlighted
             foreach (UIElement child in PatioViewer.Children)
@@ -380,7 +414,12 @@ namespace RNSR
             }
             table.Background = new SolidColorBrush(Color.FromRgb(160, 160, 120));
 
-
+            //Hide all other tableItemLists and make this one visible
+            foreach (UIElement child in ItemListGrid.Children)
+            {
+                child.Visibility = Visibility.Hidden;
+            }
+            tableItemLists[num - 1].Visibility = Visibility.Visible;
         }
 
         private void Floor1Selector_Click(object sender, RoutedEventArgs e)
@@ -423,8 +462,8 @@ namespace RNSR
             string tempPrice = this.CustomPrice.Text;
             float price = float.Parse(tempPrice, CultureInfo.InvariantCulture.NumberFormat); //DEBUG: Needs error checking
             AnItemControl anItem = new AnItemControl(description, price, selectedItems, this);
-            this.Items.Children.Add(anItem);
-            this.Scroller.ScrollToEnd();
+            tableItemLists[selectedTable - 1].Items.Children.Add(anItem);
+            tableItemLists[selectedTable - 1].Scroller.ScrollToEnd();
         }
 
         private void CustomButton_Click(object sender, RoutedEventArgs e)

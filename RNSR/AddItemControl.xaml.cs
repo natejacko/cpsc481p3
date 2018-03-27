@@ -38,8 +38,8 @@ namespace RNSR
         {
             string description = this.name + " (" + this.AddItemNotes.Text + ")";
             AnItemControl anItem = new AnItemControl(description, this.price, this.window.selectedItems, this.window);
-            this.window.Items.Children.Add(anItem);
-            this.window.Scroller.ScrollToEnd();
+            this.window.tableItemLists[this.window.selectedTable - 1].Items.Children.Add(anItem);
+            this.window.tableItemLists[this.window.selectedTable - 1].Scroller.ScrollToEnd();
         }
     }
 }
