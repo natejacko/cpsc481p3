@@ -217,14 +217,11 @@ namespace RNSR
             HeaderFooter.Visibility = Visibility.Hidden;
             LoginScreen.Visibility = Visibility.Visible;
 
-            //Replay the login login screen animation
+            //Replay the login screen animation
             Storyboard sb = this.FindResource("LoginAnimation") as Storyboard;
             sb.Begin();
 
             //DEBUG LIST
-            //ON LOGOUT:
-            //Should reset all Menu item note boxes. (remove all children, repopulate them)
-            //Note: The above requires that tables keep track of their own item viewers.
             //ITEM CONTROL/PRICE ENTERING
             //Do error checking on price and update it.
             //If modified, must re-send to kitchen.
