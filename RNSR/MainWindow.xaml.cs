@@ -109,6 +109,7 @@ namespace RNSR
                 Username.Text = "";
                 Password.Password = "";
             }
+            Floor1Selector_Click(sender, e); //Initial state of floor map
         }
 
         private void MapButton_MouseDown(object sender, MouseButtonEventArgs e)
@@ -304,68 +305,95 @@ namespace RNSR
 
         private void Table1_Click(object sender, RoutedEventArgs e)
         {
-            HeaderTableNo.Text = "Table #1";
+            TableClicked(sender, 1);
         }
 
         private void Table2_Click(object sender, RoutedEventArgs e)
         {
-            HeaderTableNo.Text = "Table #2";
+            TableClicked(sender, 2);
         }
 
         private void Table3_Click(object sender, RoutedEventArgs e)
         {
-            HeaderTableNo.Text = "Table #3";
+            TableClicked(sender, 3);
         }
 
         private void Table4_Click(object sender, RoutedEventArgs e)
         {
-            HeaderTableNo.Text = "Table #4";
+            TableClicked(sender, 4);
         }
 
         private void Table5_Click(object sender, RoutedEventArgs e)
         {
-            HeaderTableNo.Text = "Table #5";
+            TableClicked(sender, 5);
         }
 
         private void Table6_Click(object sender, RoutedEventArgs e)
         {
-            HeaderTableNo.Text = "Table #6";
+            TableClicked(sender, 6);
         }
 
         private void Table7_Click(object sender, RoutedEventArgs e)
         {
-            HeaderTableNo.Text = "Table #7";
+            TableClicked(sender, 7);
         }
 
         private void Table8_Click(object sender, RoutedEventArgs e)
         {
-            HeaderTableNo.Text = "Table #8";
+            TableClicked(sender, 8);
         }
 
         private void Table9_Click(object sender, RoutedEventArgs e)
         {
-            HeaderTableNo.Text = "Table #9";
+            TableClicked(sender, 9);
         }
 
         private void Table10_Click(object sender, RoutedEventArgs e)
         {
-            HeaderTableNo.Text = "Table #10";
+            TableClicked(sender, 10);
         }
 
-        private void View1_Click(object sender, RoutedEventArgs e)
+        private void TableClicked(object thisTable, int num)
+        {
+            Button table = (Button)thisTable;
+            HeaderTableNo.Text = String.Format("Table #{0:D}", num);
+
+            //Change all other table colors to default, and this one to highlighted
+            foreach (UIElement child in PatioViewer.Children)
+            {
+                Type childType = child.GetType();
+                if (childType.Equals(table.GetType())) //If its a button
+                {
+                    Button aTable = (Button)child;
+                    aTable.Background = new SolidColorBrush(Color.FromRgb(50, 50, 50));
+                }
+            }
+            foreach (UIElement child in Floor1Viewer.Children)
+            {
+                Type childType = child.GetType();
+                if (childType.Equals(table.GetType())) //If its a button
+                {
+                    Button aTable = (Button)child;
+                    aTable.Background = new SolidColorBrush(Color.FromRgb(50, 50, 50));
+                }
+            }
+            table.Background = new SolidColorBrush(Color.FromRgb(160, 160, 120));
+        }
+
+        private void Floor1Selector_Click(object sender, RoutedEventArgs e)
         {
             PatioViewer.Visibility = Visibility.Hidden;
-            Viewer1.Visibility = Visibility.Visible;
-            View1.Background = new SolidColorBrush(Color.FromRgb(133, 20, 20));
-            View2.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+            Floor1Viewer.Visibility = Visibility.Visible;
+            Floor1Selector.BorderBrush = new SolidColorBrush(Color.FromRgb(255, 255, 20));
+            PatioSelector.BorderBrush = new SolidColorBrush(Color.FromRgb(112, 112, 112));
         }
 
-        private void View2_Click(object sender, RoutedEventArgs e)
+        private void PatioSelector_Click(object sender, RoutedEventArgs e)
         {
-            Viewer1.Visibility = Visibility.Hidden;
+            Floor1Viewer.Visibility = Visibility.Hidden;
             PatioViewer.Visibility = Visibility.Visible;
-            View2.Background = new SolidColorBrush(Color.FromRgb(133, 20, 20));
-            View1.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+            PatioSelector.BorderBrush = new SolidColorBrush(Color.FromRgb(255, 255, 20));
+            Floor1Selector.BorderBrush = new SolidColorBrush(Color.FromRgb(112, 112, 112));
         }
 
         private void DrinksButton_Click(object sender, RoutedEventArgs e)

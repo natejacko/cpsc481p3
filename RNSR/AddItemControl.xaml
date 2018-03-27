@@ -4,13 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RNSR"
-             mc:Ignorable="d" d:DesignWidth="350" Height="110" Width="350">
+             mc:Ignorable="d" d:DesignWidth="350" Height="110" Width="353">
     <Grid x:Name="AddItemController" Background="#FF220247" Width="340" Height="100">
         <TextBlock x:Name="AddItemName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ItemName" VerticalAlignment="Top" Height="18.96" Width="290" Background="#FF6100D6" Foreground="White"/>
-        <TextBlock x:Name="AddItemPrice" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18.96" Width="50" Margin="290,0,0,0" Background="#FF7705FF" Foreground="White"><Run Text="Item"/><Run Text="Price"/></TextBlock>
+        <TextBlock x:Name="AddItemPrice" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18.96" Width="50" Margin="290,0,0,0" Background="#FF6100D6" Foreground="White"><Run Text="Item"/><Run Text="Price"/></TextBlock>
         <TextBlock x:Name="NotesText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Notes:" VerticalAlignment="Top" Height="15.96" Width="36.5" Background="#FF220247" Margin="0,18.96,-36.5,-34.92" Foreground="White"/>
-        <TextBox x:Name="AddItemNotes" HorizontalAlignment="Left" Height="82.04" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" Margin="36.5,17.96,0,0"/>
-        <Button x:Name="AddItem" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="290,50,0,0" Height="50" Background="#FF00C373" Click="AddItem_Click"/>
+        <TextBox x:Name="AddItemNotes" HorizontalAlignment="Left" Height="70" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" Margin="36.5,25.294,0,0"/>
+        <Button x:Name="AddItem" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="268.656,35.326,0,0" Height="50" Background="#FF00C373" Click="AddItem_Click"/>
 
     </Grid>
 </UserControl>
