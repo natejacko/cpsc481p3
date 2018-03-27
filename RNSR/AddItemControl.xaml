@@ -4,9 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RNSR"
-             mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="350">
-    <Grid x:Name="AddItemController" Background="#FF220247" Width="340">
+             mc:Ignorable="d" d:DesignWidth="350" Height="110" Width="350">
+    <Grid x:Name="AddItemController" Background="#FF220247" Width="340" Height="100">
         <TextBlock x:Name="AddItemName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ItemName" VerticalAlignment="Top" Height="18.96" Width="290" Background="#FF6100D6" Foreground="White"/>
         <TextBlock x:Name="AddItemPrice" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18.96" Width="50" Margin="290,0,0,0" Background="#FF7705FF" Foreground="White"><Run Text="Item"/><Run Text="Price"/></TextBlock>
         <TextBlock x:Name="NotesText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Notes:" VerticalAlignment="Top" Height="15.96" Width="36.5" Background="#FF220247" Margin="0,18.96,-36.5,-34.92" Foreground="White"/>
