@@ -60,8 +60,8 @@
         <Grid x:Name="More" Margin="0,50,0,70" Background="#FF8D8D8D" d:IsHidden="True">
             <Button x:Name="LogoutButton" Content="LOGOUT" Width="252" Margin="0" Height="99.46" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFF4982B" BorderBrush="{x:Null}" Click="LogoutButton_Click" Foreground="White" FontWeight="Bold"/>
         </Grid>
-        <Grid x:Name="Map" Margin="0,50,0,70">
-            <Grid x:Name="PatioViewer" Margin="0,0,200,0" Background="#FF7A7979">
+        <Grid x:Name="Map" Margin="0,50,0,70" d:IsHidden="True">
+            <Grid x:Name="PatioViewer" Margin="0,0,200,0" Background="#FF7A7979" d:IsHidden="True">
                 <Button x:Name="Table5" Content="Table#5" HorizontalAlignment="Left" Height="156.412" Margin="59.753,50.174,0,0" VerticalAlignment="Top" Width="630.92" FontSize="36" Background="#FF323232" Foreground="White" Click="Table5_Click"/>
                 <Button x:Name="Table6" Content="Table#6" HorizontalAlignment="Left" Height="114.234" Margin="59.753,257.551,0,0" VerticalAlignment="Top" Width="115.991" FontSize="30" Background="#FF323232" Foreground="White" Click="Table6_Click"/>
                 <Button x:Name="Table7" Content="Table#7" HorizontalAlignment="Left" Height="114.234" Margin="261.858,257.551,0,0" VerticalAlignment="Top" Width="205.62" FontSize="36" Background="#FF323232" Foreground="White" Click="Table7_Click"/>
@@ -81,7 +81,7 @@
                 <Button x:Name="Table3" Content="Table #3&#xA;" HorizontalAlignment="Left" Height="147.624" Margin="56.238,391.118,0,0" VerticalAlignment="Top" Width="230.225" Background="#FF323232" FontSize="36" Foreground="WhiteSmoke" Click="Table3_Click"/>
                 <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Floor 1" VerticalAlignment="Top" Height="42.21" Width="106.757" Margin="398.548,0,27.049,0" Foreground="White" FontWeight="Bold" FontSize="30"/>
             </Grid>
-            <Grid x:Name="ViewSelector" Margin="824,0,0,0" Background="#FF303030">
+            <Grid x:Name="ViewSelector" Margin="824,0,0,0" Background="#FF303030" d:IsHidden="True">
                 <Button x:Name="Floor1Selector" Content="Floor 1" HorizontalAlignment="Left" Height="126.535" Margin="10,147.39,0,0" VerticalAlignment="Top" Width="180" Background="#FF9C0505" Foreground="White" FontSize="48" Click="Floor1Selector_Click" Padding="1" BorderThickness="5"/>
                 <Button x:Name="PatioSelector" Content="Patio" HorizontalAlignment="Left" Height="126.535" Margin="10,347.182,0,0" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.502,-0.846" Background="#FF9C0505" Foreground="White" FontSize="48" Click="PatioSelector_Click" BorderThickness="5"/>
             </Grid>
@@ -95,7 +95,7 @@
             <Button x:Name="RemoveSelected" Content="Remove Selected" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208.334" Margin="472,274.657,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="66.627" FontSize="24" Click="RemoveSelected_Click" Foreground="White" FontWeight="Bold"/>
             <TextBlock HorizontalAlignment="Left" Margin="514.665,125.742,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="133.667" Height="45.25" Text="Edit Items:" Foreground="White" FontWeight="Bold"/>
         </Grid>
-        <Grid x:Name="Menu" Margin="0,50,300,70" Background="#FF7A7979" d:IsHidden="True">
+        <Grid x:Name="Menu" Margin="0,50,300,70" Background="#FF7A7979">
             <Button x:Name="BurgersButton" Content="Burgers" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="465.333,12.429,0,0" Height="50" Background="#FFF4982B" BorderBrush="{x:Null}" FontSize="18" Click="BurgersButton_Click" Foreground="White" FontWeight="Bold"/>
             <Button x:Name="SaladsButton" Content="Salads" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="285.333,11.803,0,0" Height="50" Background="#FFF4982B" BorderBrush="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold"/>
             <Button x:Name="DrinksButton" Content="Drinks" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="375.333,11.803,0,0" Height="50.626" Background="#FFF4982B" BorderBrush="{x:Null}" FontSize="18" Click="DrinksButton_Click" Foreground="White" FontWeight="Bold"/>
@@ -105,11 +105,11 @@
             <Button x:Name="CustomButton" Content="Create&#xD;&#xA;Custom" HorizontalAlignment="Right" VerticalAlignment="Top" Width="85" Margin="0,12.429,29.312,0" Height="50" Background="#FFF4982B" BorderBrush="{x:Null}" FontSize="18" Click="CustomButton_Click" Foreground="White" FontWeight="Bold"/>
             <ScrollViewer x:Name="SubScroller" Height="500" Margin="0,148,0,0">
                 <Grid x:Name="SubCategoryView">
-                    <Grid x:Name="CustomView" d:IsHidden="True">
+                    <Grid x:Name="CustomView">
                         <TextBox x:Name="CustomDescription" HorizontalAlignment="Left" Height="75" TextWrapping="Wrap" VerticalAlignment="Top" Width="320.667" Margin="50.667,61.05,0,0"/>
-                        <Button x:Name="AddCustomItem" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="604.666,61.05,0,0" Height="50" Background="#FF00C373" Click="AddCustomItem_Click"/>
-                        <TextBlock x:Name="CustomDescText" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="50.667,34.424,0,0" Height="21.293" Width="237.957" Text="Custom Name/Description" Foreground="White" FontSize="18"/>
-                        <TextBlock x:Name="CuistomPriceText" TextWrapping="Wrap" Text="Custom Price" Margin="412.667,34.424,184.999,458.949" FontSize="18" Foreground="White"/>
+                        <Button x:Name="AddCustomItem" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="72.5" Margin="580.916,61.05,0,0" Height="66.25" Background="#FF1D6E4D" Click="AddCustomItem_Click" FontSize="20" FontWeight="Bold" Foreground="White"/>
+                        <TextBlock x:Name="CustomDescText" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="50.667,34.424,0,0" Height="21.293" Width="237.957" Text="Custom Name/Description" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock x:Name="CuistomPriceText" TextWrapping="Wrap" Text="Custom Price" Margin="412.667,34.424,174.333,458.949" FontSize="18" Foreground="White" FontWeight="Bold"/>
                         <TextBlock x:Name="Dollar" TextWrapping="Wrap" Text="$" Margin="400,61.05,294.333,432.323" FontSize="18" Foreground="White"/>
                         <TextBox x:Name="CustomPrice" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="412.667,61.05,0,0"/>
                     </Grid>

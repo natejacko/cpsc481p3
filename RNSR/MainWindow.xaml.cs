@@ -183,20 +183,21 @@ namespace RNSR
             HeaderFooter.Visibility = Visibility.Hidden;
             LoginScreen.Visibility = Visibility.Visible;
 
+            //Replay the login login screen animation
+            Storyboard sb = this.FindResource("LoginAnimation") as Storyboard;
+            sb.Begin();
+
             //DEBUG LIST
             //ON LOGOUT:
             //Should reset the item viewer. (remove all children)
             //Should reset all Menu item note boxes. (remove all children, repopulate them)
             //Note: The above requires that tables keep track of their own item viewers.
-            //Should replay the login animation
             //ITEM CONTROL/PRICE ENTERING
             //Do error checking on price and update it.
             //If modified, must re-send to kitchen.
             //NEED TO ADD:
             //Search/filter
             //Common custom selections
-            //Should highlight the currently selected table (obvious feedback)
-
         }
 
         public void UpdateSelected()
@@ -378,6 +379,8 @@ namespace RNSR
                 }
             }
             table.Background = new SolidColorBrush(Color.FromRgb(160, 160, 120));
+
+
         }
 
         private void Floor1Selector_Click(object sender, RoutedEventArgs e)
