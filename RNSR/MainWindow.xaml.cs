@@ -209,6 +209,7 @@ namespace RNSR
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
+            this.ResetButtons();
             Map.Visibility = Visibility.Hidden;
             ViewOrder.Visibility = Visibility.Hidden;
             Menu.Visibility = Visibility.Hidden;
