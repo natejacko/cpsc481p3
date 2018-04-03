@@ -122,13 +122,20 @@ namespace RNSR
                 HeaderFooter.Visibility = Visibility.Visible;
                 MapButton.Background = new SolidColorBrush(Color.FromRgb(135, 40, 40));
                 HeaderScreenName.Text = "Floor Map";
+                HeaderUserName.Text = Username.Text;
                 Username.Text = "";
                 Password.Password = "";
             }
             Floor1Selector_Click(sender, e); //Initial state of floor map
-            HeaderTableNo.Text = String.Format("Table #{0:D}", 1); //Initial table selected
-            selectedTable = 1;
+            selectedTable = 0; //0 is not a table
             tableItemLists[0].Visibility = Visibility.Visible;
+
+            ModBlock.Visibility = Visibility.Visible;
+            foreach (UIElement child in ModBlock.Children)
+            {
+                child.Visibility = Visibility.Hidden;
+            }
+            SemiFootBlock.Visibility = Visibility.Visible;
         }
 
         private void MapButton_MouseDown(object sender, MouseButtonEventArgs e)
@@ -390,6 +397,12 @@ namespace RNSR
             Button table = (Button)thisTable;
             HeaderTableNo.Text = String.Format("Table #{0:D}", num);
             selectedTable = num;
+
+            ModBlock.Visibility = Visibility.Hidden;
+            foreach (UIElement child in ModBlock.Children)
+            {
+                child.Visibility = Visibility.Visible;
+            }
 
             //Change all other table colors to default, and this one to highlighted
             foreach (UIElement child in PatioViewer.Children)

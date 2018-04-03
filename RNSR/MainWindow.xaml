@@ -60,25 +60,25 @@
         <Grid x:Name="More" Margin="0,50,0,70" Background="#FF8D8D8D" d:IsHidden="True">
             <Button x:Name="LogoutButton" Content="LOGOUT" Width="252" Margin="0" Height="99.46" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFF4982B" BorderBrush="{x:Null}" Click="LogoutButton_Click" Foreground="White" FontWeight="Bold"/>
         </Grid>
-        <Grid x:Name="Map" Margin="0,50,0,70" d:IsHidden="True">
+        <Grid x:Name="Map" Margin="0,50,0,70">
             <Grid x:Name="PatioViewer" Margin="0,0,200,0" Background="#FF7A7979" d:IsHidden="True">
-                <Button x:Name="Table5" Content="Table#5" HorizontalAlignment="Left" Height="156.412" Margin="59.753,50.174,0,0" VerticalAlignment="Top" Width="630.92" FontSize="36" Background="#FF323232" Foreground="White" Click="Table5_Click"/>
-                <Button x:Name="Table6" Content="Table#6" HorizontalAlignment="Left" Height="114.234" Margin="59.753,257.551,0,0" VerticalAlignment="Top" Width="115.991" FontSize="30" Background="#FF323232" Foreground="White" Click="Table6_Click"/>
-                <Button x:Name="Table7" Content="Table#7" HorizontalAlignment="Left" Height="114.234" Margin="261.858,257.551,0,0" VerticalAlignment="Top" Width="205.62" FontSize="36" Background="#FF323232" Foreground="White" Click="Table7_Click"/>
-                <Button x:Name="Table8" Content="Table#8" HorizontalAlignment="Left" Height="114.234" Margin="539.533,257.551,0,0" VerticalAlignment="Top" Width="151.14" FontSize="36" Background="#FF323232" Foreground="White" Click="Table8_Click"/>
-                <Button x:Name="Table9" Content="Table#9" HorizontalAlignment="Left" Height="115.991" Margin="59.753,428.023,0,0" VerticalAlignment="Top" Width="407.725" FontSize="36" Background="#FF323232" Foreground="White" Click="Table9_Click"/>
-                <Button x:Name="Table10" Content="Table#10" HorizontalAlignment="Left" Height="115.991" Margin="539.533,428.023,0,0" VerticalAlignment="Top" Width="151.14" FontSize="36" Background="#FF323232" Foreground="White" Click="Table10_Click"/>
+                <Button x:Name="Table5" Content="5" HorizontalAlignment="Left" Height="156.412" Margin="59.753,50.174,0,0" VerticalAlignment="Top" Width="630.92" FontSize="36" Background="#FF323232" Foreground="White" Click="Table5_Click"/>
+                <Button x:Name="Table6" Content="6" HorizontalAlignment="Left" Height="114.234" Margin="59.753,257.551,0,0" VerticalAlignment="Top" Width="115.991" FontSize="30" Background="#FF323232" Foreground="White" Click="Table6_Click"/>
+                <Button x:Name="Table7" Content="7" HorizontalAlignment="Left" Height="114.234" Margin="261.858,257.551,0,0" VerticalAlignment="Top" Width="205.62" FontSize="36" Background="#FF323232" Foreground="White" Click="Table7_Click"/>
+                <Button x:Name="Table8" Content="8" HorizontalAlignment="Left" Height="114.234" Margin="539.533,257.551,0,0" VerticalAlignment="Top" Width="151.14" FontSize="36" Background="#FF323232" Foreground="White" Click="Table8_Click"/>
+                <Button x:Name="Table9" Content="9" HorizontalAlignment="Left" Height="115.991" Margin="59.753,428.023,0,0" VerticalAlignment="Top" Width="407.725" FontSize="36" Background="#FF323232" Foreground="White" Click="Table9_Click"/>
+                <Button x:Name="Table10" Content="10" HorizontalAlignment="Left" Height="115.991" Margin="539.533,428.023,0,0" VerticalAlignment="Top" Width="151.14" FontSize="36" Background="#FF323232" Foreground="White" Click="Table10_Click"/>
                 <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Patio" VerticalAlignment="Top" Height="42.21" Width="106.757" Margin="398.622,0,318.621,0" Foreground="White" FontWeight="Bold" FontSize="30"/>
             </Grid>
-            <Grid x:Name="Floor1Viewer" Margin="0,0,200,0" Background="#FF7A7979" d:IsHidden="True">
+            <Grid x:Name="Floor1Viewer" Margin="0,0,200,0" Background="#FF7A7979">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="533*"/>
                     <ColumnDefinition Width="292*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="Table1" Content="Table #1&#xA;" HorizontalAlignment="Left" Height="154.654" Margin="56.238,64.234,0,0" VerticalAlignment="Top" Width="230.225" Background="#FF323232" FontSize="36" Foreground="WhiteSmoke" Click="Table1_Click"/>
-                <Button x:Name="Table2" Content="Table #2&#xA;" HorizontalAlignment="Left" Height="154.654" Margin="514.929,64.234,0,0" VerticalAlignment="Top" Width="226.71" Background="#FF323232" FontSize="36" Foreground="WhiteSmoke" Click="Table2_Click" Grid.ColumnSpan="2"/>
-                <Button x:Name="Table4" Content="Table #4&#xA;" HorizontalAlignment="Left" Height="147.624" Margin="514.929,391.118,0,0" VerticalAlignment="Top" Width="226.71" Background="#FF323232" FontSize="36" Foreground="WhiteSmoke" Click="Table4_Click" Grid.ColumnSpan="2"/>
-                <Button x:Name="Table3" Content="Table #3&#xA;" HorizontalAlignment="Left" Height="147.624" Margin="56.238,391.118,0,0" VerticalAlignment="Top" Width="230.225" Background="#FF323232" FontSize="36" Foreground="WhiteSmoke" Click="Table3_Click"/>
+                <Button x:Name="Table1" Content="1&#xA;" HorizontalAlignment="Left" Height="154.654" Margin="56.238,64.234,0,0" VerticalAlignment="Top" Width="230.225" Background="#FF323232" FontSize="36" Foreground="WhiteSmoke" Click="Table1_Click"/>
+                <Button x:Name="Table2" Content="2&#xA;" HorizontalAlignment="Left" Height="154.654" Margin="514.929,64.234,0,0" VerticalAlignment="Top" Width="226.71" Background="#FF323232" FontSize="36" Foreground="WhiteSmoke" Click="Table2_Click" Grid.ColumnSpan="2"/>
+                <Button x:Name="Table4" Content="4&#xA;" HorizontalAlignment="Left" Height="147.624" Margin="514.929,391.118,0,0" VerticalAlignment="Top" Width="226.71" Background="#FF323232" FontSize="36" Foreground="WhiteSmoke" Click="Table4_Click" Grid.ColumnSpan="2"/>
+                <Button x:Name="Table3" Content="3&#xA;" HorizontalAlignment="Left" Height="147.624" Margin="56.238,391.118,0,0" VerticalAlignment="Top" Width="230.225" Background="#FF323232" FontSize="36" Foreground="WhiteSmoke" Click="Table3_Click"/>
                 <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Floor 1" VerticalAlignment="Top" Height="42.21" Width="106.757" Margin="398.548,0,27.049,0" Foreground="White" FontWeight="Bold" FontSize="30"/>
             </Grid>
             <Grid x:Name="ViewSelector" Margin="824,0,0,0" Background="#FF303030" d:IsHidden="True">
@@ -95,7 +95,7 @@
             <Button x:Name="RemoveSelected" Content="Remove Selected" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208.334" Margin="472,274.657,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="66.627" FontSize="24" Click="RemoveSelected_Click" Foreground="White" FontWeight="Bold"/>
             <TextBlock HorizontalAlignment="Left" Margin="514.665,125.742,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="133.667" Height="45.25" Text="Edit Items:" Foreground="White" FontWeight="Bold"/>
         </Grid>
-        <Grid x:Name="Menu" Margin="0,50,300,70" Background="#FF7A7979">
+        <Grid x:Name="Menu" Margin="0,50,300,70" Background="#FF7A7979" d:IsHidden="True">
             <Button x:Name="BurgersButton" Content="Burgers" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="465.333,12.429,0,0" Height="50" Background="#FFF4982B" BorderBrush="{x:Null}" FontSize="18" Click="BurgersButton_Click" Foreground="White" FontWeight="Bold"/>
             <Button x:Name="SaladsButton" Content="Salads" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="285.333,11.803,0,0" Height="50" Background="#FFF4982B" BorderBrush="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold"/>
             <Button x:Name="DrinksButton" Content="Drinks" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="375.333,11.803,0,0" Height="50.626" Background="#FFF4982B" BorderBrush="{x:Null}" FontSize="18" Click="DrinksButton_Click" Foreground="White" FontWeight="Bold"/>
@@ -131,6 +131,7 @@
             <Grid x:Name="Header" Height="50" VerticalAlignment="Top" Background="#FF303030">
                 <TextBlock x:Name="HeaderScreenName" HorizontalAlignment="Left" Height="30" Margin="399,10,0,0" TextWrapping="Wrap" Text="Screen Name" VerticalAlignment="Top" Width="225" FontWeight="Bold" Foreground="White" FontSize="24"/>
                 <TextBlock x:Name="HeaderTableNo" HorizontalAlignment="Left" Height="30" Margin="868,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" FontWeight="Bold" FontSize="24" Foreground="White" Text="Table #"/>
+                <TextBlock x:Name="HeaderUserName" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" FontWeight="Bold" FontSize="24" Foreground="White" Text="User Name"/>
             </Grid>
             <Grid x:Name="Footer" Height="70" VerticalAlignment="Bottom" Background="#FF303030">
                 <Grid x:Name="MapButton" Margin="0,0,824,0" Background="#FF7A7979" MouseDown="MapButton_MouseDown">
@@ -150,11 +151,12 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Grid x:Name="ModBlock" d:IsHidden="True">
+        <Grid x:Name="ModBlock">
             <Rectangle x:Name="FootBlock" Fill="#807A7979" Height="70" VerticalAlignment="Bottom" Margin="0"/>
             <Rectangle x:Name="AllBlock" Fill="#807A7979" Height="64.999" VerticalAlignment="Top" Margin="26.667,226.667,813.666,0"/>
             <Rectangle x:Name="SelectedBlock" Fill="#807A7979" Height="65" VerticalAlignment="Top" Margin="26.667,325.333,0,0" HorizontalAlignment="Left" Width="183.667"/>
             <Rectangle x:Name="RemoveBlock" Fill="#807A7979" Height="65" VerticalAlignment="Top" Margin="473,325.333,0,0" HorizontalAlignment="Left" Width="206.667"/>
+            <Rectangle x:Name="SemiFootBlock" Fill="#807A7979" Height="70" VerticalAlignment="Bottom" Margin="205,0,0,0"/>
         </Grid>
         <Grid x:Name="LoginScreen" Background="#FF7A7979" d:IsHidden="True">
             <Canvas Margin="594.999,10,287.251,536.483">
