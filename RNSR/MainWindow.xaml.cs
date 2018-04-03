@@ -23,7 +23,6 @@ namespace RNSR
     public partial class MainWindow : Window
     {
         public List<AnItemControl> selectedItems;
-        public bool allowModify { get; private set; } = false;
         public List<object> itemDataBase;
         public List<ItemListControl> tableItemLists;
         public int selectedTable;
@@ -36,7 +35,8 @@ namespace RNSR
             ManageOrder.Visibility = Visibility.Hidden;
             ItemListGrid.Visibility = Visibility.Hidden;
             HeaderFooter.Visibility = Visibility.Hidden;
-            ModBlock.Visibility = Visibility.Hidden;
+            SemiFootBlock.Visibility = Visibility.Hidden;
+            ItemModifying.Visibility = Visibility.Hidden;
             LoginScreen.Visibility = Visibility.Visible;
 
             PopulateFromDB(); //Creates all food subcategories based on a fake database
@@ -167,7 +167,6 @@ namespace RNSR
             Floor1Selector_Click(sender, e); //Initial state of floor map
             selectedTable = 0; //0 is not a table
             tableItemLists[0].Visibility = Visibility.Visible;
-            ModBlock.Visibility = Visibility.Visible;
             SemiFootBlock.Visibility = Visibility.Visible;
         }
 
@@ -300,14 +299,14 @@ namespace RNSR
             {
                 tableItemLists[selectedTable - 1].Items.Children.Remove(item);
             }
+            UpdateSelected();
         }
 
         private void SendAll_Click(object sender, RoutedEventArgs e)
         {
             foreach (AnItemControl anItem in tableItemLists[selectedTable - 1].Items.Children)
             {
-                anItem.ItemNo.Visibility = Visibility.Hidden;
-                anItem.ItemYes.Visibility = Visibility.Visible;
+                anItem.SentItem.Visibility = Visibility.Visible;
             }
         }
 
@@ -315,8 +314,7 @@ namespace RNSR
         {
             foreach (AnItemControl anItem in selectedItems)
             {
-                anItem.ItemNo.Visibility = Visibility.Hidden;
-                anItem.ItemYes.Visibility = Visibility.Visible;
+                anItem.SentItem.Visibility = Visibility.Visible;
             }
         }
 
@@ -327,6 +325,27 @@ namespace RNSR
                 tableItemLists[selectedTable - 1].Items.Children.Remove(anItem);
             }
             selectedItems.Clear();
+            UpdateSelected(); //Update pricing
+            decimal totalPrice = Decimal.Parse(TotalRemaining.Text, System.Globalization.NumberStyles.Currency);
+            totalPrice -= Decimal.Parse(TotalSelected.Text, System.Globalization.NumberStyles.Currency);
+            TotalRemaining.Text = totalPrice.ToString("c2");
+            TotalSelected.Text = "$0.00";
+            if (ManageOrder.Visibility == Visibility.Visible)
+            {
+                float totalPrice1 = 0.00f;
+                float selectedPrice = 0.00f;
+                foreach (object child in tableItemLists[selectedTable - 1].Items.Children)
+                {
+                    if (child is AnItemControl)
+                    {
+                        totalPrice1 += (child as AnItemControl).price;
+                        if ((child as AnItemControl).selected)
+                            selectedPrice += (child as AnItemControl).price;
+                    }
+                }
+                TotalRemaining.Text = totalPrice1.ToString("c2");
+                TotalSelected.Text = selectedPrice.ToString("c2");
+            }
         }
 
         private void Table1_Click(object sender, RoutedEventArgs e)
@@ -509,6 +528,42 @@ namespace RNSR
             }
             DessertsView.Visibility = Visibility.Visible;
             SelectedMenuName.Text = "Desserts";
+        }
+
+        public void AnItemModifying(object sender, RoutedEventArgs e, AnItemControl anItem)
+        {
+            ItemModifying.Visibility = Visibility.Visible;
+            ModDescription.Text = anItem.ItemDescription.Text;
+            ModPrice.Text = anItem.price.ToString();
+            ModDescription.IsReadOnly = false;
+            ModPrice.IsReadOnly = false;
+        }
+
+        private void ConfirmChanges_Click(object sender, RoutedEventArgs e)
+        {
+            AnItemControl anItem = selectedItems.First(); //Should be the only item currently in list
+            selectedItems.Remove(anItem);
+            anItem.ItemDescription.Text = ModDescription.Text;
+            anItem.ItemPrice.Text = "$"+ModPrice.Text; //DEBUG: Needs error checking
+            anItem.price = float.Parse(ModPrice.Text, CultureInfo.InvariantCulture.NumberFormat); 
+            anItem.ModButton.Background = new SolidColorBrush(Color.FromRgb(244, 152, 43));
+            ItemModifying.Visibility = Visibility.Hidden;
+            if (ManageOrder.Visibility == Visibility.Visible)
+            {
+                float totalPrice = 0.00f;
+                float selectedPrice = 0.00f;
+                foreach (object child in tableItemLists[selectedTable - 1].Items.Children)
+                {
+                    if (child is AnItemControl)
+                    {
+                        totalPrice += (child as AnItemControl).price;
+                        if ((child as AnItemControl).selected)
+                            selectedPrice += (child as AnItemControl).price;
+                    }
+                }
+                TotalRemaining.Text = totalPrice.ToString("c2");
+                TotalSelected.Text = selectedPrice.ToString("c2");
+            }
         }
     }
 }

@@ -33,23 +33,14 @@ namespace RNSR
             this.selectedItems = selectedItems;
             this.ItemDescription.Text = description;
             this.ItemPrice.Text = String.Format("{0:C2}", price); //Defaults to regional format: $0.00
-            this.ItemNo.Visibility = Visibility.Visible;
-            this.ItemYes.Visibility = Visibility.Hidden;
-            if (window.allowModify)
-            {
-                this.ItemDescription.IsReadOnly = false;
-                this.ItemPrice.IsReadOnly = false;
-            }
-            else
-            {
-                this.ItemDescription.IsReadOnly = true;
-                this.ItemPrice.IsReadOnly = true;
-            }
+            this.SentItem.Visibility = Visibility.Hidden;
+            this.ItemDescription.IsReadOnly = true;
+            this.ItemPrice.IsReadOnly = true;
         }
 
         public void Deselect()
         {
-            this.ItemDescription.Background = new SolidColorBrush(Color.FromRgb(214, 214, 214));
+            this.ItemDescription.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             this.selected = false;
             this.selectedItems.Remove(this);
             this.window.UpdateSelected();
@@ -59,7 +50,7 @@ namespace RNSR
         {
             if (this.selected) //If it WAS selected, make it no longer
             {
-                this.ItemDescription.Background = new SolidColorBrush(Color.FromRgb(214, 214, 214));
+                this.ItemDescription.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
                 this.selected = false;
                 this.selectedItems.Remove(this);
                 this.window.UpdateSelected();
@@ -75,46 +66,22 @@ namespace RNSR
 
         public void SendToKitchen()
         {
-            this.ItemNo.Visibility = Visibility.Hidden;
-            this.ItemYes.Visibility = Visibility.Visible;
+            this.SentItem.Visibility = Visibility.Visible;
         }
 
-        /*
-        private void ModifySelected_Click(object sender, RoutedEventArgs e)
+        private void ModButton_Click(object sender, RoutedEventArgs e)
         {
-            this.allowModify = !this.allowModify; //Toggle the bool
-            if (this.allowModify)
+            int count = selectedItems.Count;
+            for (int i = 0; i < count; i++)
             {
-                while (selectedItems.Count > 0)
-                {
-                    AnItemControl anItem = selectedItems.First();
-                    anItem.Deselect();
-                    selectedItems.Remove(anItem);
-                }
-                selectedItems.Clear();
-                ModifySelected.Background = new SolidColorBrush(Color.FromRgb(0, 200, 0));
-                ToggleViewer.Fill = new SolidColorBrush(Color.FromRgb(0, 200, 0));
-                ModBlock.Visibility = Visibility.Visible;
-                foreach (AnItemControl anItem in tableItemLists[selectedTable - 1].Items.Children)
-                {
-                    anItem.ItemDescription.IsReadOnly = false;
-                    anItem.ItemPrice.IsReadOnly = false;
-                    anItem.Selector.Visibility = Visibility.Hidden;
-                }
+                AnItemControl anItem = selectedItems.First();
+                anItem.Deselect();
+                selectedItems.Remove(anItem);
             }
-            else
-            {
-                ModifySelected.Background = new SolidColorBrush(Color.FromRgb(244, 152, 43));
-                ToggleViewer.Fill = new SolidColorBrush(Color.FromRgb(0, 153, 178));
-                ModBlock.Visibility = Visibility.Hidden;
-                foreach (AnItemControl anItem in tableItemLists[selectedTable - 1].Items.Children)
-                {
-                    anItem.ItemDescription.IsReadOnly = true;
-                    anItem.ItemPrice.IsReadOnly = true;
-                    anItem.Selector.Visibility = Visibility.Visible;
-                }
-            }
+            selectedItems.Add(this);
+
+            this.ModButton.Background = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+            window.AnItemModifying(sender, e, this);
         }
-        */
     }
 }

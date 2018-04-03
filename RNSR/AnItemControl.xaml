@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RNSR"
-             mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="283" Width="283" Height="85">
+             mc:Ignorable="d" d:DesignWidth="283" Width="283" Height="88.203">
     <UserControl.Resources>
         <Storyboard x:Key="OnMouseEnter1">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Selector">
@@ -57,11 +56,12 @@
             <BeginStoryboard x:Name="OnMouseLeave1_BeginStoryboard" Storyboard="{StaticResource OnMouseLeave1}"/>
         </EventTrigger>
     </UserControl.Triggers>
-    <Grid x:Name="AnItem" Background="#FF4D5F52" Margin="0" HorizontalAlignment="Left" Height="85">
-        <TextBox x:Name="ItemDescription" HorizontalAlignment="Left" Height="80" TextWrapping="Wrap" Text="ItemDescription" VerticalAlignment="Top" Width="223" Background="#FFD6D6D6" BorderBrush="{x:Null}" BorderThickness="0" Cursor="IBeam" FontSize="16"/>
-        <TextBox x:Name="ItemPrice" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="ItemPrice" VerticalAlignment="Top" Width="60" Margin="223,60,0,0" BorderBrush="{x:Null}" BorderThickness="0" Background="White" Cursor="IBeam" FontSize="16"/>
-        <Image x:Name="ItemNo" HorizontalAlignment="Left" Height="60" Margin="223,0,0,0" VerticalAlignment="Top" Width="60" OpacityMask="#FF898989" Source="NoCheck.png"/>
-        <Image x:Name="ItemYes" Height="60" Margin="223,0,0,0" VerticalAlignment="Top" Width="60" OpacityMask="#FF898989" Source="YesCheck.png"/>
-        <Button x:Name="Selector" Content="" Margin="0,0,0,5" Background="#00FFFF00" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="Selector_Click" Template="{DynamicResource SelectorTemplate}" d:IsHidden="True"/>
+    <Grid x:Name="AnItem" Margin="0,0,0,4.982" HorizontalAlignment="Left">
+        <TextBox x:Name="ItemDescription" HorizontalAlignment="Left" Height="60" TextWrapping="Wrap" Text="ItemDescription" VerticalAlignment="Top" Width="223" Background="White" BorderBrush="{x:Null}" BorderThickness="0" Cursor="IBeam" FontSize="16"/>
+        <TextBox x:Name="ItemPrice" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="ItemPrice" VerticalAlignment="Top" Width="71.744" Margin="0,60,0,0" BorderBrush="{x:Null}" BorderThickness="0" Background="#FFD6D6D6" Cursor="IBeam" FontSize="16"/>
+        <Button x:Name="ModButton" Content="Mod" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="223,0,0,0" Height="80" BorderBrush="{x:Null}" BorderThickness="0" Background="#FFF4982B" FontSize="24" FontWeight="Bold" Foreground="White" Click="ModButton_Click"/>
+        <Rectangle Fill="#FF14AFDC" Margin="71.744,60.16,60,3.203"/>
+        <TextBlock x:Name="SentItem" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="112.214,60.018,0,0" Height="20" Width="110.786" FontSize="16" Foreground="White" Text="Sent To Kitchen"/>
+        <Button x:Name="Selector" Margin="0,0,60,3.221" Background="#00FFFF00" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="Selector_Click" Template="{DynamicResource SelectorTemplate}" d:IsHidden="True"/>
     </Grid>
 </UserControl>

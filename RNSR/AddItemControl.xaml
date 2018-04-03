@@ -10,7 +10,7 @@
         <TextBlock x:Name="AddItemPrice" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="29.632" Width="86.828" Margin="253.172,0,0,0" Background="#FF0075D6" Foreground="White" FontWeight="Bold" FontSize="18"><Run Text="Item"/><Run Text="Price"/></TextBlock>
         <TextBlock x:Name="NotesText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Notes:" VerticalAlignment="Top" Height="25.293" Width="59.171" Margin="2.001,30.299,0,0" Foreground="White" FontWeight="Bold" FontSize="18"/>
         <TextBox x:Name="AddItemNotes" HorizontalAlignment="Left" Height="70" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Margin="61.172,34.632,0,0" FontSize="16"/>
-        <Button x:Name="AddItem" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="58.009" Margin="268.656,40.662,0,0" Height="56.008" Background="#FF1D6E4D" Click="AddItem_Click" FontWeight="Bold" FontSize="24" Foreground="White"/>
+        <Button x:Name="AddItem" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="58.009" Margin="268.656,40.662,0,0" Height="56.008" Background="#FFF4982B" Click="AddItem_Click" FontWeight="Bold" FontSize="24" Foreground="White" BorderBrush="{x:Null}"/>
 
     </Grid>
 </UserControl>
