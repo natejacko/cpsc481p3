@@ -32,13 +32,12 @@ namespace RNSR
         {
             InitializeComponent();
             Map.Visibility = Visibility.Hidden;
-            ViewOrder.Visibility = Visibility.Hidden;
             Menu.Visibility = Visibility.Hidden;
-            Pay.Visibility = Visibility.Hidden;
+            ManageOrder.Visibility = Visibility.Hidden;
             ItemListGrid.Visibility = Visibility.Hidden;
             HeaderFooter.Visibility = Visibility.Hidden;
-            LoginScreen.Visibility = Visibility.Visible;
             ModBlock.Visibility = Visibility.Hidden;
+            LoginScreen.Visibility = Visibility.Visible;
 
             PopulateFromDB(); //Creates all food subcategories based on a fake database
             foreach(UIElement child in SubCategoryView.Children) //Set all food subcategories to hidden
@@ -92,18 +91,16 @@ namespace RNSR
         private void ResetButtons()
         {
             MapButton.Background = new SolidColorBrush(Color.FromRgb(122, 121, 121));
-            ViewOrderButton.Background = new SolidColorBrush(Color.FromRgb(122, 121, 121));
             MenuButton.Background = new SolidColorBrush(Color.FromRgb(122, 121, 121));
-            PayButton.Background = new SolidColorBrush(Color.FromRgb(122, 121, 121));
+            ManageButton.Background = new SolidColorBrush(Color.FromRgb(122, 121, 121));
             MoreButton.Background = new SolidColorBrush(Color.FromRgb(122, 121, 121));
         }
 
         private void HideAllScreensAfterLogin()
         {
             Map.Visibility = Visibility.Hidden;
-            ViewOrder.Visibility = Visibility.Hidden;
             Menu.Visibility = Visibility.Hidden;
-            Pay.Visibility = Visibility.Hidden;
+            ManageOrder.Visibility = Visibility.Hidden;
             ItemListGrid.Visibility = Visibility.Hidden;
         }
 
@@ -129,12 +126,7 @@ namespace RNSR
             Floor1Selector_Click(sender, e); //Initial state of floor map
             selectedTable = 0; //0 is not a table
             tableItemLists[0].Visibility = Visibility.Visible;
-
             ModBlock.Visibility = Visibility.Visible;
-            foreach (UIElement child in ModBlock.Children)
-            {
-                child.Visibility = Visibility.Hidden;
-            }
             SemiFootBlock.Visibility = Visibility.Visible;
         }
 
@@ -145,16 +137,6 @@ namespace RNSR
             HeaderScreenName.Text = "Floor Map";
             this.HideAllScreensAfterLogin();
             Map.Visibility = Visibility.Visible;
-        }
-
-        private void ViewOrderButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.ResetButtons();
-            ViewOrderButton.Background = new SolidColorBrush(Color.FromRgb(135, 40, 40));
-            HeaderScreenName.Text = "View Order";
-            this.HideAllScreensAfterLogin();
-            ViewOrder.Visibility = Visibility.Visible;
-            ItemListGrid.Visibility = Visibility.Visible;
         }
 
         private void MenuButton_MouseDown(object sender, MouseButtonEventArgs e)
@@ -182,13 +164,13 @@ namespace RNSR
             CustomPrice.Text = "";
         }
 
-        private void PayButton_MouseDown(object sender, MouseButtonEventArgs e)
+        private void ManageButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.ResetButtons();
-            PayButton.Background = new SolidColorBrush(Color.FromRgb(135, 40, 40));
+            ManageButton.Background = new SolidColorBrush(Color.FromRgb(135, 40, 40));
             HeaderScreenName.Text = "Pay for Order";
             this.HideAllScreensAfterLogin();
-            Pay.Visibility = Visibility.Visible;
+            ManageOrder.Visibility = Visibility.Visible;
             ItemListGrid.Visibility = Visibility.Visible;
             float totalPrice = 0.00f;
             float selectedPrice = 0.00f;
@@ -218,9 +200,8 @@ namespace RNSR
         {
             this.ResetButtons();
             Map.Visibility = Visibility.Hidden;
-            ViewOrder.Visibility = Visibility.Hidden;
             Menu.Visibility = Visibility.Hidden;
-            Pay.Visibility = Visibility.Hidden;
+            ManageOrder.Visibility = Visibility.Hidden;
             ItemListGrid.Visibility = Visibility.Hidden;
             HeaderFooter.Visibility = Visibility.Hidden;
             LoginScreen.Visibility = Visibility.Visible;
@@ -306,42 +287,6 @@ namespace RNSR
             selectedItems.Clear();
         }
 
-        private void ModifySelected_Click(object sender, RoutedEventArgs e)
-        {
-            this.allowModify = !this.allowModify; //Toggle the bool
-            if (this.allowModify)
-            {
-                while(selectedItems.Count > 0)
-                {
-                    AnItemControl anItem = selectedItems.First();
-                    anItem.Deselect();
-                    selectedItems.Remove(anItem);
-                }
-                selectedItems.Clear();
-                ModifySelected.Background = new SolidColorBrush(Color.FromRgb(0, 200, 0));
-                ToggleViewer.Fill = new SolidColorBrush(Color.FromRgb(0, 200, 0));
-                ModBlock.Visibility = Visibility.Visible;
-                foreach (AnItemControl anItem in tableItemLists[selectedTable - 1].Items.Children)
-                {
-                    anItem.ItemDescription.IsReadOnly = false;
-                    anItem.ItemPrice.IsReadOnly = false;
-                    anItem.Selector.Visibility = Visibility.Hidden;
-                }
-            }
-            else
-            {
-                ModifySelected.Background = new SolidColorBrush(Color.FromRgb(244, 152, 43));
-                ToggleViewer.Fill = new SolidColorBrush(Color.FromRgb(0, 153, 178));
-                ModBlock.Visibility = Visibility.Hidden;
-                foreach (AnItemControl anItem in tableItemLists[selectedTable - 1].Items.Children)
-                {
-                    anItem.ItemDescription.IsReadOnly = true;
-                    anItem.ItemPrice.IsReadOnly = true;
-                    anItem.Selector.Visibility = Visibility.Visible;
-                }
-            }
-        }
-
         private void Table1_Click(object sender, RoutedEventArgs e)
         {
             TableClicked(sender, 1);
@@ -397,12 +342,7 @@ namespace RNSR
             Button table = (Button)thisTable;
             HeaderTableNo.Text = String.Format("Table #{0:D}", num);
             selectedTable = num;
-
-            ModBlock.Visibility = Visibility.Hidden;
-            foreach (UIElement child in ModBlock.Children)
-            {
-                child.Visibility = Visibility.Visible;
-            }
+            SemiFootBlock.Visibility = Visibility.Hidden;
 
             //Change all other table colors to default, and this one to highlighted
             foreach (UIElement child in PatioViewer.Children)

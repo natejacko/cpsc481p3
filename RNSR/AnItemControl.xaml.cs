@@ -78,5 +78,43 @@ namespace RNSR
             this.ItemNo.Visibility = Visibility.Hidden;
             this.ItemYes.Visibility = Visibility.Visible;
         }
+
+        /*
+        private void ModifySelected_Click(object sender, RoutedEventArgs e)
+        {
+            this.allowModify = !this.allowModify; //Toggle the bool
+            if (this.allowModify)
+            {
+                while (selectedItems.Count > 0)
+                {
+                    AnItemControl anItem = selectedItems.First();
+                    anItem.Deselect();
+                    selectedItems.Remove(anItem);
+                }
+                selectedItems.Clear();
+                ModifySelected.Background = new SolidColorBrush(Color.FromRgb(0, 200, 0));
+                ToggleViewer.Fill = new SolidColorBrush(Color.FromRgb(0, 200, 0));
+                ModBlock.Visibility = Visibility.Visible;
+                foreach (AnItemControl anItem in tableItemLists[selectedTable - 1].Items.Children)
+                {
+                    anItem.ItemDescription.IsReadOnly = false;
+                    anItem.ItemPrice.IsReadOnly = false;
+                    anItem.Selector.Visibility = Visibility.Hidden;
+                }
+            }
+            else
+            {
+                ModifySelected.Background = new SolidColorBrush(Color.FromRgb(244, 152, 43));
+                ToggleViewer.Fill = new SolidColorBrush(Color.FromRgb(0, 153, 178));
+                ModBlock.Visibility = Visibility.Hidden;
+                foreach (AnItemControl anItem in tableItemLists[selectedTable - 1].Items.Children)
+                {
+                    anItem.ItemDescription.IsReadOnly = true;
+                    anItem.ItemPrice.IsReadOnly = true;
+                    anItem.Selector.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        */
     }
 }

@@ -60,7 +60,7 @@
         <Grid x:Name="More" Margin="0,50,0,70" Background="#FF8D8D8D" d:IsHidden="True">
             <Button x:Name="LogoutButton" Content="LOGOUT" Width="252" Margin="0" Height="99.46" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFF4982B" BorderBrush="{x:Null}" Click="LogoutButton_Click" Foreground="White" FontWeight="Bold"/>
         </Grid>
-        <Grid x:Name="Map" Margin="0,50,0,70">
+        <Grid x:Name="Map" Margin="0,50,0,70" d:IsHidden="True">
             <Grid x:Name="PatioViewer" Margin="0,0,200,0" Background="#FF7A7979" d:IsHidden="True">
                 <Button x:Name="Table5" Content="5" HorizontalAlignment="Left" Height="156.412" Margin="59.753,50.174,0,0" VerticalAlignment="Top" Width="630.92" FontSize="36" Background="#FF323232" Foreground="White" Click="Table5_Click"/>
                 <Button x:Name="Table6" Content="6" HorizontalAlignment="Left" Height="114.234" Margin="59.753,257.551,0,0" VerticalAlignment="Top" Width="115.991" FontSize="30" Background="#FF323232" Foreground="White" Click="Table6_Click"/>
@@ -86,15 +86,6 @@
                 <Button x:Name="PatioSelector" Content="Patio" HorizontalAlignment="Left" Height="126.535" Margin="10,347.182,0,0" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.502,-0.846" Background="#FF9C0505" Foreground="White" FontSize="48" Click="PatioSelector_Click" BorderThickness="5"/>
             </Grid>
         </Grid>
-        <Grid x:Name="ViewOrder" Margin="0,50,300,70" Background="#FF7A7979" d:IsHidden="True">
-            <Rectangle x:Name="ToggleViewer" Fill="#FF0099B2" HorizontalAlignment="Left" Height="66.627" VerticalAlignment="Top" Width="43.666" Margin="680.334,175.992,0,0"/>
-            <Button x:Name="SendAll" Content="All" HorizontalAlignment="Left" VerticalAlignment="Top" Width="185.667" Margin="25.333,175.992,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="66.627" FontSize="24" Click="SendAll_Click" Foreground="White" FontWeight="Bold"/>
-            <Button x:Name="SendSelected" Content="Selected" HorizontalAlignment="Left" VerticalAlignment="Top" Width="185.667" Margin="25.333,274.657,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="66.627" FontSize="24" Click="SendSelected_Click" Foreground="White" FontWeight="Bold"/>
-            <TextBlock HorizontalAlignment="Left" Margin="53.332,92.409,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="133.667" Height="78.583" Foreground="White" FontWeight="Bold"><Run Text="Send "/><Run Text="Items"/><LineBreak/><Run Text="To "/><Run Text="Kitchen"/><Run Text=":"/></TextBlock>
-            <Button x:Name="ModifySelected" Content="Allow Modifying" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208.334" Margin="472,175.992,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="66.627" FontSize="24" Click="ModifySelected_Click" Foreground="White" FontWeight="Bold"/>
-            <Button x:Name="RemoveSelected" Content="Remove Selected" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208.334" Margin="472,274.657,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="66.627" FontSize="24" Click="RemoveSelected_Click" Foreground="White" FontWeight="Bold"/>
-            <TextBlock HorizontalAlignment="Left" Margin="514.665,125.742,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="133.667" Height="45.25" Text="Edit Items:" Foreground="White" FontWeight="Bold"/>
-        </Grid>
         <Grid x:Name="Menu" Margin="0,50,300,70" Background="#FF7A7979" d:IsHidden="True">
             <Button x:Name="BurgersButton" Content="Burgers" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="465.333,12.429,0,0" Height="50" Background="#FFF4982B" BorderBrush="{x:Null}" FontSize="18" Click="BurgersButton_Click" Foreground="White" FontWeight="Bold"/>
             <Button x:Name="SaladsButton" Content="Salads" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="285.333,11.803,0,0" Height="50" Background="#FFF4982B" BorderBrush="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold"/>
@@ -118,13 +109,19 @@
                 </Grid>
             </ScrollViewer>
         </Grid>
-        <Grid x:Name="Pay" Margin="0,50,300,70" Background="#FF7A7979" d:IsHidden="True">
-            <Button x:Name="PayAllButton" Content="Pay All" HorizontalAlignment="Left" Height="70" Margin="51,368.5,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FFF4982B" FontSize="24" Click="PayAllButton_Click"/>
-            <Button x:Name="PaySelectedButton" Content="Pay Selected" HorizontalAlignment="Left" Height="70" Margin="401.5,368.5,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FFF4982B" FontSize="24" Click="PaySelectedButton_Click"/>
-            <TextBlock HorizontalAlignment="Left" Height="64.5" Margin="51,273.538,0,0" TextWrapping="Wrap" Text="Total Remaining:" VerticalAlignment="Top" Width="225" FontWeight="Bold" FontSize="24" Foreground="White"/>
-            <TextBlock HorizontalAlignment="Left" Height="56.538" Margin="401.5,273.538,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="211.5" FontWeight="Bold" FontSize="24" Foreground="White" Text="Total Selected:"/>
-            <TextBlock x:Name="TotalRemaining" HorizontalAlignment="Left" Height="37.038" Margin="247.5,273.538,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="24" Foreground="#FF31E451" Text="$0.00"/>
-            <TextBlock x:Name="TotalSelected" HorizontalAlignment="Left" Height="37.038" Margin="582,273.538,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="24" Foreground="#FF31E451" Text="$0.00"/>
+        <Grid x:Name="ManageOrder" Margin="0,50,300,70" Background="#FF7A7979">
+            <Button x:Name="PayAllButton" Content="All" HorizontalAlignment="Left" Height="70" Margin="446.834,243.072,0,0" VerticalAlignment="Top" Width="210" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FFF4982B" FontSize="24" Click="PayAllButton_Click"/>
+            <Button x:Name="PaySelectedButton" Content="Selected&#xD;&#xA;" HorizontalAlignment="Left" Height="70" Margin="446.834,108.159,0,0" VerticalAlignment="Top" Width="210" FontWeight="Bold" Foreground="White" BorderBrush="{x:Null}" Background="#FFF4982B" FontSize="24" Click="PaySelectedButton_Click"/>
+            <TextBlock HorizontalAlignment="Left" Height="64.5" Margin="421.834,313.659,0,0" TextWrapping="Wrap" Text="Total Remaining:" VerticalAlignment="Top" Width="225" FontWeight="Bold" FontSize="24" Foreground="White" RenderTransformOrigin="1.584,-1.334"/>
+            <TextBlock HorizontalAlignment="Left" Height="56.538" Margin="422.75,178.534,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="211.5" FontWeight="Bold" FontSize="24" Foreground="White" Text="Total Selected:"/>
+            <TextBlock x:Name="TotalRemaining" HorizontalAlignment="Left" Height="37.038" Margin="618.334,313.659,-26.334,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="24" Foreground="#FF31E451" Text="$0.00"/>
+            <TextBlock x:Name="TotalSelected" HorizontalAlignment="Left" Height="37.038" Margin="603.25,178.534,-11.25,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="24" Foreground="#FF31E451" Text="$0.00"/>
+            <Button x:Name="SendAll" Content="All" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" Margin="46.583,243.072,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="70" FontSize="24" Click="SendAll_Click" Foreground="White" FontWeight="Bold"/>
+            <Button x:Name="SendSelected" Content="Selected" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" Margin="46.583,108.159,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="70" FontSize="24" Click="SendSelected_Click" Foreground="White" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Left" Margin="25.333,61.799,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="258.167" Height="49.733" Foreground="White" FontWeight="Bold"><Run Text="Send "/><Run Text="Items "/><Run Text="To Kitchen"/></TextBlock>
+            <Button x:Name="RemoveSelected" Content="Selected" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" Margin="46.583,502.14,0,0" Background="#FFF4982B" BorderBrush="{x:Null}" Height="70" FontSize="24" Click="RemoveSelected_Click" Foreground="White" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Left" Margin="465.667,61.799,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="168.583" Height="46.36" Foreground="White" FontWeight="Bold" Text="Pay For Items"/>
+            <TextBlock HorizontalAlignment="Left" Margin="66.583,452.407,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="258.167" Height="49.733" Foreground="White" FontWeight="Bold" Text="Remove Items"/>
         </Grid>
         <Grid x:Name="ItemListGrid" Margin="724,50,0,70"/>
         <Grid x:Name="HeaderFooter">
@@ -134,29 +131,22 @@
                 <TextBlock x:Name="HeaderUserName" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" FontWeight="Bold" FontSize="24" Foreground="White" Text="User Name"/>
             </Grid>
             <Grid x:Name="Footer" Height="70" VerticalAlignment="Bottom" Background="#FF303030">
-                <Grid x:Name="MapButton" Margin="0,0,824,0" Background="#FF7A7979" MouseDown="MapButton_MouseDown">
-                    <TextBlock HorizontalAlignment="Left" Height="30.5" Margin="73,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" FontWeight="Bold" FontSize="24" Foreground="White"><Run Text="Map"/><LineBreak/><Run/></TextBlock>
+                <Grid x:Name="MapButton" Margin="0,0,773,0" Background="#FF7A7979" MouseDown="MapButton_MouseDown" Width="251">
+                    <TextBlock HorizontalAlignment="Left" Height="30.5" Margin="98,19.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" FontWeight="Bold" FontSize="24" Foreground="White"><Run Text="Map"/><LineBreak/><Run/></TextBlock>
                 </Grid>
-                <Grid x:Name="ViewOrderButton" Margin="206,0,618,0" Background="#FF7A7979" MouseDown="ViewOrderButton_MouseDown">
-                    <TextBlock HorizontalAlignment="Left" Height="34" Margin="34,19,0,0" TextWrapping="Wrap" Text="View Order" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="24" Foreground="White"/>
+                <Grid x:Name="MenuButton" Margin="258.75,0,515.25,0" Background="#FF7A7979" MouseDown="MenuButton_MouseDown" Width="250">
+                    <TextBlock HorizontalAlignment="Left" Height="31" Margin="93.25,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" FontWeight="Bold" FontSize="24" Foreground="White"><Run Text="Menu"/><LineBreak/><Run/></TextBlock>
                 </Grid>
-                <Grid x:Name="MenuButton" Margin="412,0" Background="#FF7A7979" MouseDown="MenuButton_MouseDown">
-                    <TextBlock HorizontalAlignment="Left" Height="31" Margin="67,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" FontWeight="Bold" FontSize="24" Foreground="White"><Run Text="Menu"/><LineBreak/><Run/></TextBlock>
+                <Grid x:Name="ManageButton" Margin="516.5,0,257.5,0" Background="#FF7A7979" MouseDown="ManageButton_MouseDown" Width="250">
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="42.5,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167.5" FontWeight="Bold" FontSize="24" Foreground="White"><Run Text="Manage"/><Run Text=" Order"/></TextBlock>
                 </Grid>
-                <Grid x:Name="PayButton" Margin="618,0,206,0" Background="#FF7A7979" MouseDown="PayButton_MouseDown">
-                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="78.5,19,0,0" TextWrapping="Wrap" Text="Pay" VerticalAlignment="Top" Width="43" FontWeight="Bold" FontSize="24" Foreground="White"/>
-                </Grid>
-                <Grid x:Name="MoreButton" Margin="824,0,0,0" Background="#FF7A7979" MouseDown="MoreButton_MouseDown">
-                    <TextBlock HorizontalAlignment="Left" Height="33" Margin="69,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" FontWeight="Bold" FontSize="24" Foreground="White"><Run Text="More"/><LineBreak/><Run/></TextBlock>
+                <Grid x:Name="MoreButton" Margin="774,0,0,0" Background="#FF7A7979" MouseDown="MoreButton_MouseDown" Width="250">
+                    <TextBlock HorizontalAlignment="Left" Height="33" Margin="91.5,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" FontWeight="Bold" FontSize="24" Foreground="White"><Run Text="More"/><LineBreak/><Run/></TextBlock>
                 </Grid>
             </Grid>
         </Grid>
         <Grid x:Name="ModBlock">
-            <Rectangle x:Name="FootBlock" Fill="#807A7979" Height="70" VerticalAlignment="Bottom" Margin="0"/>
-            <Rectangle x:Name="AllBlock" Fill="#807A7979" Height="64.999" VerticalAlignment="Top" Margin="26.667,226.667,813.666,0"/>
-            <Rectangle x:Name="SelectedBlock" Fill="#807A7979" Height="65" VerticalAlignment="Top" Margin="26.667,325.333,0,0" HorizontalAlignment="Left" Width="183.667"/>
-            <Rectangle x:Name="RemoveBlock" Fill="#807A7979" Height="65" VerticalAlignment="Top" Margin="473,325.333,0,0" HorizontalAlignment="Left" Width="206.667"/>
-            <Rectangle x:Name="SemiFootBlock" Fill="#807A7979" Height="70" VerticalAlignment="Bottom" Margin="205,0,0,0"/>
+            <Rectangle x:Name="SemiFootBlock" Fill="#807A7979" Height="70" VerticalAlignment="Bottom" Margin="250,0,0,0"/>
         </Grid>
         <Grid x:Name="LoginScreen" Background="#FF7A7979" d:IsHidden="True">
             <Canvas Margin="594.999,10,287.251,536.483">
