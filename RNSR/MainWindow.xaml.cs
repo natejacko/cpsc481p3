@@ -66,15 +66,36 @@ namespace RNSR
         {
             //We can imagine these lists are actually rows pulled from a database
             //Number of names and prices must match up
+            //They should be sorted alphabetically already
             List<string> drinkNames = new List<string>()
-                { "Apple Juice", "Banana Smoothie", "Cream Soda", "Fire Ant Shot" };
+                { "Apple Juice", "Banana Smoothie", "Cream Soda", "Fire Ant Shot", "Water" };
             List<float> drinkPrices = new List<float>()
-                { 2.99f, 4.99f, 3.99f, 9.99f };
+                { 2.99f, 4.99f, 3.99f, 9.99f, 0.00f };
 
             List<string> burgerNames = new List<string>()
-                { "Burger1", "Burger2", "Burger3", "Burger4", "Burger5", "Burger6", "Burger7", "Burger8", "Burger9", "Burger10", "Burger11", "Burger12", "Burger13", };
+                { "Angus", "Australasian", "Bacon Cheesburger", "Buffalo", "California", "Kimchi", "Salmon", "Slider", "Slothburger", "Slugburger", "Steak", "Teriyaki", "Veggie", };
             List<float> burgerPrices = new List<float>()
                 { 2.99f, 4.99f, 3.99f, 9.99f, 2.99f, 4.99f, 3.99f, 9.99f, 2.99f, 4.99f, 9.99f, 2.99f, 4.99f};
+
+            List<string> pastaNames = new List<string>()
+                { "Chicken Alfredo", "Some Silly Pasta", "Spaghetti Monster" };
+            List<float> pastaPrices = new List<float>()
+                { 12.99f, 14.99f, 33.33f };
+
+            List<string> saladNames = new List<string>()
+                { "Caesar", "Fire Ant Salad", "Greek", "Taco" };
+            List<float> saladPrices = new List<float>()
+                { 2.99f, 4.99f, 3.99f, 9.99f};
+
+            List<string> dessertNames = new List<string>()
+                { "All Dem Sweets", "Brownie Tastic" };
+            List<float> dessertPrices = new List<float>()
+                { 12.99f, 8.99f };
+
+            List<string> soupNames = new List<string>()
+                { "Chicken Noodle", "Mushroom", "Tomato" };
+            List<float> soupPrices = new List<float>()
+                { 2.99f, 4.99f, 3.99f };
 
             for (int i = 0; i < drinkNames.Count; i++)
             {
@@ -85,6 +106,26 @@ namespace RNSR
             {
                 AddItemControl anItem = new AddItemControl(burgerNames[i], burgerPrices[i], this);
                 this.BurgersView.Children.Add(anItem);
+            }
+            for (int i = 0; i < pastaNames.Count; i++)
+            {
+                AddItemControl anItem = new AddItemControl(pastaNames[i], pastaPrices[i], this);
+                this.PastasView.Children.Add(anItem);
+            }
+            for (int i = 0; i < soupNames.Count; i++)
+            {
+                AddItemControl anItem = new AddItemControl(soupNames[i], soupPrices[i], this);
+                this.SoupsView.Children.Add(anItem);
+            }
+            for (int i = 0; i < saladNames.Count; i++)
+            {
+                AddItemControl anItem = new AddItemControl(saladNames[i], saladPrices[i], this);
+                this.SaladsView.Children.Add(anItem);
+            }
+            for (int i = 0; i < dessertNames.Count; i++)
+            {
+                AddItemControl anItem = new AddItemControl(dessertNames[i], dessertPrices[i], this);
+                this.DessertsView.Children.Add(anItem);
             }
         }
 
@@ -162,6 +203,7 @@ namespace RNSR
             }
             CustomDescription.Text = "";
             CustomPrice.Text = "";
+            SelectedMenuName.Text = "";
         }
 
         private void ManageButton_MouseDown(object sender, MouseButtonEventArgs e)
@@ -396,6 +438,7 @@ namespace RNSR
                 child.Visibility = Visibility.Hidden;
             }
             DrinksView.Visibility = Visibility.Visible;
+            SelectedMenuName.Text = "Drinks";
         }
 
         private void BurgersButton_Click(object sender, RoutedEventArgs e)
@@ -405,6 +448,7 @@ namespace RNSR
                 child.Visibility = Visibility.Hidden;
             }
             BurgersView.Visibility = Visibility.Visible;
+            SelectedMenuName.Text = "Burgers";
         }
 
         private void AddCustomItem_Click(object sender, RoutedEventArgs e)
@@ -424,6 +468,47 @@ namespace RNSR
                 child.Visibility = Visibility.Hidden;
             }
             CustomView.Visibility = Visibility.Visible;
+            SelectedMenuName.Text = "Create Custom";
+        }
+
+        private void PastasButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (UIElement child in SubCategoryView.Children)
+            {
+                child.Visibility = Visibility.Hidden;
+            }
+            PastasView.Visibility = Visibility.Visible;
+            SelectedMenuName.Text = "Pastas";
+        }
+
+        private void SoupsButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (UIElement child in SubCategoryView.Children)
+            {
+                child.Visibility = Visibility.Hidden;
+            }
+            SoupsView.Visibility = Visibility.Visible;
+            SelectedMenuName.Text = "Soups";
+        }
+
+        private void SaladsButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (UIElement child in SubCategoryView.Children)
+            {
+                child.Visibility = Visibility.Hidden;
+            }
+            SaladsView.Visibility = Visibility.Visible;
+            SelectedMenuName.Text = "Salads";
+        }
+
+        private void DessertsButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (UIElement child in SubCategoryView.Children)
+            {
+                child.Visibility = Visibility.Hidden;
+            }
+            DessertsView.Visibility = Visibility.Visible;
+            SelectedMenuName.Text = "Desserts";
         }
     }
 }
