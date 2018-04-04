@@ -67,6 +67,7 @@ namespace RNSR
         public void SendToKitchen()
         {
             this.SentItem.Visibility = Visibility.Visible;
+            this.ModButton.IsEnabled = false;
         }
 
         private void ModButton_Click(object sender, RoutedEventArgs e)

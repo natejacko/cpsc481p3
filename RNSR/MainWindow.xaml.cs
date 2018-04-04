@@ -270,14 +270,6 @@ namespace RNSR
             //Replay the login screen animation
             Storyboard sb = this.FindResource("LoginAnimation") as Storyboard;
             sb.Begin();
-
-            //DEBUG LIST
-            //ITEM CONTROL/PRICE ENTERING
-            //Do error checking on price and update it.
-            //If modified, must re-send to kitchen.
-            //NEED TO ADD:
-            //Search/filter
-            //Common custom selections
         }
 
         public void UpdateSelected()
@@ -326,7 +318,7 @@ namespace RNSR
         {
             foreach (AnItemControl anItem in tableItemLists[selectedTable - 1].Items.Children)
             {
-                anItem.SentItem.Visibility = Visibility.Visible;
+                anItem.SendToKitchen();
             }
         }
 
@@ -334,7 +326,7 @@ namespace RNSR
         {
             foreach (AnItemControl anItem in selectedItems)
             {
-                anItem.SentItem.Visibility = Visibility.Visible;
+                anItem.SendToKitchen();
             }
         }
 
