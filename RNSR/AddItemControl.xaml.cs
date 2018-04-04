@@ -41,5 +41,18 @@ namespace RNSR
             this.window.tableItemLists[this.window.selectedTable - 1].Items.Children.Add(anItem);
             this.window.tableItemLists[this.window.selectedTable - 1].Scroller.ScrollToEnd();
         }
+
+        private void KeyBoardTrigger_MouseEnter(object sender, MouseEventArgs e)
+        {
+            window.ScrollerKeyboard.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
+            window.ScrollerKeyboard.ScrollToEnd();
+        }
+
+        private void AddItemNotes_GotFocus(object sender, RoutedEventArgs e)
+        {
+            window.ScrollerKeyboard.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
+            window.ScrollerKeyboard.ScrollToEnd();
+            window.KeyBoardImage.Visibility = Visibility.Visible;
+        }
     }
 }

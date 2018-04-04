@@ -32,12 +32,15 @@ namespace RNSR
             InitializeComponent();
             Map.Visibility = Visibility.Hidden;
             Menu.Visibility = Visibility.Hidden;
+            More.Visibility = Visibility.Hidden;
             ManageOrder.Visibility = Visibility.Hidden;
             ItemListGrid.Visibility = Visibility.Hidden;
+            ItemListHeader.Visibility = Visibility.Hidden;
             HeaderFooter.Visibility = Visibility.Hidden;
             SemiFootBlock.Visibility = Visibility.Hidden;
             ItemModifying.Visibility = Visibility.Hidden;
             LoginScreen.Visibility = Visibility.Visible;
+            ScrollerKeyboard.VerticalScrollBarVisibility = ScrollBarVisibility.Disabled;
 
             PopulateFromDB(); //Creates all food subcategories based on a fake database
             foreach(UIElement child in SubCategoryView.Children) //Set all food subcategories to hidden
@@ -143,6 +146,7 @@ namespace RNSR
             Menu.Visibility = Visibility.Hidden;
             ManageOrder.Visibility = Visibility.Hidden;
             ItemListGrid.Visibility = Visibility.Hidden;
+            ItemListHeader.Visibility = Visibility.Hidden;
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -169,6 +173,7 @@ namespace RNSR
                 tableItemLists[0].Visibility = Visibility.Visible;
                 SemiFootBlock.Visibility = Visibility.Visible;
                 this.ResetTables();
+                ScrollerKeyboard.VerticalScrollBarVisibility = ScrollBarVisibility.Disabled;
             }
         }
 
@@ -207,9 +212,10 @@ namespace RNSR
             this.HideAllScreensAfterLogin();
             Menu.Visibility = Visibility.Visible;
             ItemListGrid.Visibility = Visibility.Visible;
-            
+            ItemListHeader.Visibility = Visibility.Visible;
+
             //Reset all text fields for adding items
-            foreach(object aView in SubCategoryView.Children)
+            foreach (object aView in SubCategoryView.Children)
             {
                 if(aView is WrapPanel)
                 {
@@ -233,6 +239,7 @@ namespace RNSR
             this.HideAllScreensAfterLogin();
             ManageOrder.Visibility = Visibility.Visible;
             ItemListGrid.Visibility = Visibility.Visible;
+            ItemListHeader.Visibility = Visibility.Visible;
             float totalPrice = 0.00f;
             float selectedPrice = 0.00f;
             foreach(object child in tableItemLists[selectedTable - 1].Items.Children)
@@ -262,6 +269,7 @@ namespace RNSR
             this.ResetButtons();
             Map.Visibility = Visibility.Hidden;
             Menu.Visibility = Visibility.Hidden;
+            More.Visibility = Visibility.Hidden;
             ManageOrder.Visibility = Visibility.Hidden;
             ItemListGrid.Visibility = Visibility.Hidden;
             HeaderFooter.Visibility = Visibility.Hidden;
@@ -576,6 +584,18 @@ namespace RNSR
                 TotalRemaining.Text = totalPrice.ToString("c2");
                 TotalSelected.Text = selectedPrice.ToString("c2");
             }
+        }
+        
+        private void KeyboardDone_Click(object sender, RoutedEventArgs e)
+        {
+            ScrollerKeyboard.VerticalScrollBarVisibility = ScrollBarVisibility.Disabled;
+        }
+
+        private void KeyBoardTrigger_GotFocus(object sender, RoutedEventArgs e)
+        {
+            ScrollerKeyboard.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
+            ScrollerKeyboard.ScrollToEnd();
+            KeyBoardImage.Visibility = Visibility.Visible;
         }
     }
 }

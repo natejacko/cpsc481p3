@@ -135,10 +135,9 @@
     <Resource Include="TopBun.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="YesCheck.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="NoCheck.png" />
+    <Resource Include="KeyboardImage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
