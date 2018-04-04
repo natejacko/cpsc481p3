@@ -161,14 +161,34 @@ namespace RNSR
                 MapButton.Background = new SolidColorBrush(Color.FromRgb(135, 40, 40));
                 HeaderScreenName.Text = "Floor Map";
                 HeaderUserName.Text = Username.Text;
+                HeaderTableNo.Text = "Table #";
                 Username.Text = "";
                 Password.Password = "";
+                Floor1Selector_Click(sender, e); //Initial state of floor map
+                selectedTable = 0; //0 is not a table
+                tableItemLists[0].Visibility = Visibility.Visible;
+                SemiFootBlock.Visibility = Visibility.Visible;
+                this.ResetTables();
             }
-            Floor1Selector_Click(sender, e); //Initial state of floor map
-            selectedTable = 0; //0 is not a table
-            tableItemLists[0].Visibility = Visibility.Visible;
-            SemiFootBlock.Visibility = Visibility.Visible;
         }
+
+        private void ResetTables()
+        {
+            foreach (UIElement child in PatioViewer.Children)
+            {
+                if (child is Button)
+                {
+                    ((Button)child).Background = new SolidColorBrush(Color.FromRgb(50, 50, 50));
+                }
+            }
+            foreach (UIElement child in Floor1Viewer.Children)
+            {
+                if (child is Button)
+                {
+                    ((Button)child).Background = new SolidColorBrush(Color.FromRgb(50, 50, 50));
+                }
+            }
+            }
 
         private void MapButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
