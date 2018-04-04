@@ -412,7 +412,7 @@ namespace RNSR
                 if (childType.Equals(table.GetType())) //If its a button
                 {
                     Button aTable = (Button)child;
-                    aTable.Background = new SolidColorBrush(Color.FromRgb(50, 50, 50));
+                    aTable.BorderBrush = new SolidColorBrush(Color.FromRgb(112, 112, 112));
                 }
             }
             foreach (UIElement child in Floor1Viewer.Children)
@@ -421,10 +421,10 @@ namespace RNSR
                 if (childType.Equals(table.GetType())) //If its a button
                 {
                     Button aTable = (Button)child;
-                    aTable.Background = new SolidColorBrush(Color.FromRgb(50, 50, 50));
+                    aTable.BorderBrush = new SolidColorBrush(Color.FromRgb(112, 112, 112));
                 }
             }
-            table.Background = new SolidColorBrush(Color.FromRgb(160, 160, 120));
+            table.BorderBrush = new SolidColorBrush(Color.FromRgb(255, 255, 20));
 
             //Hide all other tableItemLists and make this one visible
             foreach (UIElement child in ItemListGrid.Children)
