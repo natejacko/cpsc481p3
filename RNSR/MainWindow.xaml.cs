@@ -183,14 +183,14 @@ namespace RNSR
             {
                 if (child is Button)
                 {
-                    ((Button)child).Background = new SolidColorBrush(Color.FromRgb(50, 50, 50));
+                    ((Button)child).BorderBrush = new SolidColorBrush(Color.FromRgb(112, 112, 112));
                 }
             }
             foreach (UIElement child in Floor1Viewer.Children)
             {
                 if (child is Button)
                 {
-                    ((Button)child).Background = new SolidColorBrush(Color.FromRgb(50, 50, 50));
+                    ((Button)child).BorderBrush = new SolidColorBrush(Color.FromRgb(112, 112, 112));
                 }
             }
             }
