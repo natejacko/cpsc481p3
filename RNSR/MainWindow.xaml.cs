@@ -235,7 +235,7 @@ namespace RNSR
         {
             this.ResetButtons();
             ManageButton.Background = new SolidColorBrush(Color.FromRgb(135, 40, 40));
-            HeaderScreenName.Text = "Pay for Order";
+            HeaderScreenName.Text = "Manage Order";
             this.HideAllScreensAfterLogin();
             ManageOrder.Visibility = Visibility.Visible;
             ItemListGrid.Visibility = Visibility.Visible;
