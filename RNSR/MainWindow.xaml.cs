@@ -30,6 +30,9 @@ namespace RNSR
         public MainWindow()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.Manual;
+            this.Left = 0;
+            this.Top = 0;
             Map.Visibility = Visibility.Hidden;
             Menu.Visibility = Visibility.Hidden;
             More.Visibility = Visibility.Hidden;
